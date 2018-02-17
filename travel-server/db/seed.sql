@@ -12,3 +12,11 @@ INSERT INTO activity (name, description, price, votes, itinerary_id) VALUES
 ('The opera', 'downtown', 400, 1, 3),
 ('party', 'prty all nite', 500, 0, 2),
 ('drinking', 'wasteddd', 78, 3, 1);
+
+INSERT INTO users (fname, lname, email, username) VALUES
+('Namie', 'McSmith', 'mcsmith@me.com', 'mcsmithgrrrl'),
+('Gladies', 'Pipps', 'pipsing@me.com', 'pipmeout'),
+('Jeunet', 'Cobblepot', 'penguinlvr@me.com', 'arkarkark'),
+('Jimmi', 'Smittz', 'thesbian@me.com', 'thesbian'),
+('Ramona', 'Danzig', 'mother@me.com', 'mother'),
+('Wikki', 'Wicardo', 'aylucy@me.com', 'lucyhater');
