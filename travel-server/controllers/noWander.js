@@ -7,14 +7,11 @@ const wander = require("../models/noWander.js");
 // noWanderModel.getAllActivities
 // This is Leon's job
 
-noWander.allActivities = (req, res, next)=>{
-  db.manyOrNone('SELECT * FROM activity')
-  .then(activities => {
-    res.locals.activities = activities;
-    next();
-  })
-  .catch(err=>console.log(err));
-};
+
+
+
+
+
 
 // ----------------------------------------------------
 // Define GET request for '/dashboard', which is ALL

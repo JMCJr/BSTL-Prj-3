@@ -8,11 +8,14 @@ const noWander = {};
 // noWanderModel.getAllActivities
 // This is _______ job
 
-
-
-
-
-
+noWander.allActivities = (req, res, next)=>{
+  db.manyOrNone('SELECT * FROM activity')
+  .then(activities => {
+    res.locals.activities = activities;
+    next();
+  })
+  .catch(err=>console.log(err));
+};
 
 
 // ----------------------------------------------------
