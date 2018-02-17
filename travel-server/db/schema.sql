@@ -19,7 +19,7 @@ CREATE TABLE itinerary(
 	city VARCHAR(255),
 	date_departing VARCHAR(255),
 	date_returning VARCHAR(255),
-	budget INTEGER,
+	budget INTEGER
 );
 
 DROP TABLE IF EXISTS users_itinerary;
