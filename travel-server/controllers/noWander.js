@@ -1,5 +1,5 @@
 
-const router = require("express").Router();
+const wanderRouter = require("express").Router();
 const wander = require("../models/noWander.js");
 
 // ----------------------------------------------------
