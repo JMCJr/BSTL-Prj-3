@@ -7,8 +7,8 @@ CREATE TABLE users (
   fname VARCHAR(255) NOT NULL,
   lname VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
-  username VARCHAR(20) UNIQUE,
-  password_digest VARCHAR NOT NULL
+  username VARCHAR(20) UNIQUE
+  -- password_digest VARCHAR NOT NULL
 );
 
 DROP TABLE IF EXISTS itinerary;
