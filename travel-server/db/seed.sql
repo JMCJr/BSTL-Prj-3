@@ -1,4 +1,4 @@
-INSERT INTO itinerary (name, city, date_daparting, date_returning, budget) VALUES 
+INSERT INTO itinerary (name, city, date_departing, date_returning, budget) VALUES 
   ('Girl trip', 'Paris', "05/12/2018", "05/27/2018", 5555),
   ('Brocode', 'Miami', "06/17/2018", "07/27/2018", 3000),
   ('Business trip', 'Chicago', "03/12/2018", "03/27/2018", 10202),
