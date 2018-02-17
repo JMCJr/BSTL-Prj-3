@@ -1,4 +1,4 @@
-\c project_3
+\c noWander
 
 DROP TABLE IF EXISTS users;
 
