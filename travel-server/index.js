@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
+const app = express();
 /* setting up port & listen */
 
 /* setting up logger */
