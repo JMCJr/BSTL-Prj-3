@@ -30,3 +30,61 @@
   background: lightblue;
   border: 2px solid white;
 }
+
+/**/
+
+.App {
+  text-align: center;
+}
+
+.landingContainer {
+  display: flex;
+
+}
+
+.login {
+  flex-grow: 1;
+  margin: 200px;
+}
+
+.landingTitle {
+  text-align: right;
+  flex-grow: 4;
+  margin: 200px;
+  /*padding-right: 200px;*/
+}
+
+.signupTitle {
+  
+}
+
+.signupForm {
+
+}
+
+
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

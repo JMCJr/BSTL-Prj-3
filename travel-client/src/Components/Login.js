@@ -12,29 +12,34 @@ export default class Login extends Component {
 	render() {
 		return (
 			<div className="App Backdrop">
-				<form>
-					<div>
-						<div>
-							<input
-								id="email"
-								type="text"
-								name="user[email]"
-								placeholder="email"
-							/>
-							<br />
-							<input
-								id="password"
-								type="password"
-								name="user[password]"
-								placeholder="password"
-							/>
-							<br />
-						</div>
-					</div>
-				</form>
+				<div className="login">
+            <h3>LOGIN</h3>
+            <form onSubmit="">
+              <input
+                type="text"
+                name="email"
+                placeholder="email"
+
+              />
+                <br />
+              <input
+                type="text"
+                name="password"
+                placeholder="password"
+
+               />
+                <br />
+              <input
+                type="submit"
+              />
+            </form>
+            
 				<Link to="/dashboard">
 					<h1>ENTER</h1>
 				</Link>
+				<br/>
+            <p>Sign Up</p>
+          </div>
 			</div>
 		);
 	}
