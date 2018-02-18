@@ -38,7 +38,9 @@ export default class Login extends Component {
 					<h1>ENTER</h1>
 				</Link>
 				<br/>
+          <Link to="/signup">
             <p>Sign Up</p>
+          </Link>
           </div>
 			</div>
 		);
