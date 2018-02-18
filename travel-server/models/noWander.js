@@ -58,7 +58,7 @@ noWander.getItinerary = (req, res, next)=>{
     res.locals.getItineraryData = data;
     next();
   })
-}.catch(error=> {
+.catch(error=> {
   console.log("error encountered in noWander.getItinerary. Error",error);
   next();
 })

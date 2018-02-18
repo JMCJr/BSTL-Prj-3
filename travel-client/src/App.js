@@ -4,6 +4,7 @@ import "./App.css";
 import Landing from "./Components/Landing";
 import ProfilePage from "./Components/Profile/ProfilePage";
 import Signup from './Components/Signup';
+import Login from "./Components/Login";
 
 class App extends Component {
 	constructor(props) {
@@ -23,7 +24,7 @@ class App extends Component {
             exact path="/login"
             render={() => {
               return (
-              <Landing /> )
+              <Login /> )
             }}
           />
           <Route 
