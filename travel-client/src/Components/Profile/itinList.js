@@ -29,9 +29,9 @@ export default class ItinList extends Component {
 			url: "http://localhost:8080/api/nowander/dashboard",
 			method: "GET"
 		}).then(response => {
-			console.log("in ProfilePage : ", response.data.data);
+			console.log("in ProfilePage : ", response.data.itineraries);
 			this.setState({
-				allItineraries: response.data.data,
+				allItineraries: response.data.itineraries,
 				dataLoaded: true
 			});
 		});
