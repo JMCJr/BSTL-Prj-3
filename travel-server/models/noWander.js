@@ -94,13 +94,13 @@ noWander.deleteItinerary = (req, res, next) =>{
 // middleware 
 // noWanderModel.deleteOneActivity
 // This is ______ job
-
-
-
-
-
-
-
+noWander.deleteActivity = (req, res, next) =>{
+  db
+  .none('DELETE FROM activity where activity.id = $1',[req.params.id])
+  .then(()=>{
+    next();
+  })
+}
 // ----------------------------------------------------
 
 module.exports = noWander;
