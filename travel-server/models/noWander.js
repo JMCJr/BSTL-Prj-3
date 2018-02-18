@@ -28,11 +28,24 @@ noWander.allItineraries = (req, res, next)=> {
     res.locals.itineraries = itineraries;
     next();
   })
-}.catch(error=>{
+.catch(error=>{
   console.log("error encountered in noWander.allItineraries. Error", error);
   next(error);
 })
 };
+
+// noWander.allItineraries = (req, res, next) => {
+//   db
+//     .manyOrNone("SELECT * FROM itinerary")
+//     .then(data => {
+//       console.log(data);
+//       res.locals.data = data;
+//       next();
+//     })
+//     .catch(err => console.log(err));
+// };
+
+
 // ----------------------------------------------------
 // middleware
 // noWanderModel.getOneItinerary
@@ -54,19 +67,41 @@ noWander.getItinerary = (req, res, next)=>{
 // middleware 
 // noWanderModel.NewItinerary
 // This is ______ job
-noWander.createItinerary = (req, res, next)=>{
-  let{name,city,date_departing,date_returning,budget} =req.body;
-  db.one("INSERT INTO itinerary(name, city, date_departing, date_returning, budget) VALUES($1, $2, $3, $4, $5) RETURNING id",
-    [name, city, date_departing, date_returning, budget])
-  .then(itineraryId => {
-    res.locals.itineraryId = itineraryId;
-    next();
-  })
-}.catch(error =>{
-  console.log("error encountered in noWander.createItinerary. Error", error);
-  next()
-})
+
+// noWander.createItinerary = (req, res, next)=>{
+//   let{name,city,date_departing,date_returning,budget} =req.body;
+//   db.one("INSERT INTO itinerary(name, city, date_departing, date_returning, budget) VALUES($1, $2, $3, $4, $5) RETURNING id",
+//     [name, city, date_departing, date_returning, budget])
+//   .then(itineraryId => {
+//     res.locals.itineraryId = itineraryId;
+//     next();
+//   })
+// }.catch(error =>{
+//   console.log("error encountered in noWander.createItinerary. Error", error);
+//   next()
+// })
+// };
+
+
+noWander.newItinerary = (req, res, next) => {
+  console.log("OOKKK", req.body);
+  db
+    .one(
+      "INSERT INTO itinerary(name, city, date_departing, date_returning, budget) VALUES ($1, $2, $3, $4, $5) RETURNING id",
+      [
+        req.body.name,
+        req.body.city,
+        req.body.date_departing,
+        req.body.date_returning,
+        req.body.budget
+      ]
+    )
+    .then(id => {
+      res.locals.itineraryId = id;
+      next();
+    });
 };
+
 // ----------------------------------------------------
 // middleware
 // noWanderModel.NewActivity
@@ -102,5 +137,6 @@ noWander.deleteActivity = (req, res, next) =>{
   })
 }
 // ----------------------------------------------------
+
 
 module.exports = noWander;

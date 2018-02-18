@@ -5,8 +5,10 @@ const logger = require("morgan");
 const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const app = express();
-/* setting up port & listen */
+const cors = require("cors");
 
+/* setting up port & listen */
+app.use(cors());
 /* setting up logger */
 app.use(logger("dev"));
 /* setting up body parser */
@@ -37,5 +39,5 @@ app.listen(PORT, function() {
 });
 
 app.get("*", function(req, res) {
-	res.status(404).send({ message: "Oops! Not found." });
+	res.status(404).send({ message: "Oops22! Not found." });
 });

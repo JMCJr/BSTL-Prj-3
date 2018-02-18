@@ -1,14 +1,14 @@
 //Set for pg promise
-const pgp = require('pg-promise')();
+const pgp = require("pg-promise")();
 
 //configuration object
 
 const cn = {
-  host:'localhost',
-  port:5432,
-  database: 'noWander'
+	host: "localhost",
+	port: 5432,
+	database: "noWander"
 };
 
-const db = pgp;
+const db = pgp(cn);
 
 module.exports = db;
