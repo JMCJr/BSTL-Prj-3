@@ -4,8 +4,8 @@ const express = require("express"),
 	noWander = require("../models/noWander.js");
 
 router.get("/dashboard", noWander.allItineraries, (req, res) => {
-	const { data } = res.locals;
-	res.json({ data });
+	const { itineraries } = res.locals;
+	res.json({ itineraries });
 });
 router.post("/dashboard", noWander.newItinerary, (req, res) => {
 	console.log(res.locals);

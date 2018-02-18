@@ -8,7 +8,7 @@ const noWander = {};
 // noWanderModel.getAllActivities
 // This is _______ job
 noWander.allActivities = (req, res, next)=>{
-  db.manyOrNone('SELECT * FROM activity')
+  db.manyOrNone('SELECT * FROM activity;')
   .then(activities => {
     res.locals.activities = activities;
     next();
@@ -23,7 +23,7 @@ noWander.allActivities = (req, res, next)=>{
 // noWanderModel.getAllItineraries
 // This is _______ job
 noWander.allItineraries = (req, res, next)=> {
-  db.manyOrNone('SELECT * FROM itinerary')
+  db.manyOrNone('SELECT * FROM itinerary;')
   .then(itineraries =>{
     res.locals.itineraries = itineraries;
     next();
@@ -53,7 +53,7 @@ noWander.allItineraries = (req, res, next)=> {
 noWander.getItinerary = (req, res, next)=>{
   const id = req.params.id;
   db
-  .one(`SELECT * FROM itinerary WHERE itinerary.id =${id}`, {id : id})
+  .one(`SELECT * FROM itinerary WHERE itinerary.id =${id};`, {id : id})
   .then(data => {
     res.locals.getItineraryData = data;
     next();
