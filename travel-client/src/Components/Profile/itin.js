@@ -8,10 +8,11 @@ export default class Itin extends Component {
 		const itinerary = this.props.itinerary;
 		return (
 			<div className="Itinerary-card">
-				<p>Name:{itinerary.name}</p>
-				<p>Description:{itinerary.description}</p>
+				<p>Name: {itinerary.name}</p>
+				<p>Description: {itinerary.description}</p>
 				<p>City: {itinerary.city}</p>
-
+				<p>Departing: {itinerary.departing}</p>
+				<p>Returning: {itinerary.returning}</p> 
 				<p>Budget: ${itinerary.budget.toFixed(2)}</p>
 			</div>
 		);
