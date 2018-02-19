@@ -7,6 +7,7 @@ export default class Nav extends Component {
 		return (
 			<div>
 				<Link to="/dashboard">NNNNAAAVVV</Link>
+        
 			</div>
 		);
 	}
