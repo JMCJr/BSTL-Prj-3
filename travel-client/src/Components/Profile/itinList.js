@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-	BrowserRouter as Router,
-	Link,
-	Route,
-	Switch,
-	Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
 import Itin from "./Itin";
 

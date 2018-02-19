@@ -1,11 +1,5 @@
 import React, { Component } from "react";
-import {
-	BrowserRouter as Router,
-	Link,
-	Route,
-	Switch,
-	Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
 import Signup from "./Signup";
 import Login from "./Login";
 import ProfilePage from "./Profile/ProfilePage";
