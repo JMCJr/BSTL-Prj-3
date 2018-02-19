@@ -106,6 +106,21 @@ noWander.newItinerary = (req, res, next) => {
 // middleware
 // noWanderModel.NewActivity
 // This is ______ job
+noWander.newActivity = (req, res, next) => {
+  console.log('is it working?', req.body);
+  db
+  .one('INSERT INTO activity WHERE activity.itinerary_id = itinerary.id(name, description, price, votes) VALUES($1, $2, $3, $4) RETURNING id',
+    [req.body.name,
+    req.body.description,
+    req.body.price,
+    req.body.budget
+    ]
+    )
+  .then(id => {
+    res.locals.activityId = id;
+    next();
+  });
+};
 
 
 
