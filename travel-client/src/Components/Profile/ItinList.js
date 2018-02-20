@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Link,
+	Route,
+	Switch,
+	Redirect
+} from "react-router-dom";
 import axios from "axios";
 import Itin from "./Itin";
 
@@ -40,6 +46,10 @@ export default class ItinList extends Component {
 		const itineraries = this.state.allItineraries.map(
 			this.renderItineraries
 		);
-		return <div>{itineraries}</div>;
+		return (
+			<div className="Overflow Centered-True Itinerary-box">
+				<div className="Flex-vertical">{itineraries}</div>
+			</div>
+		);
 	}
 }
