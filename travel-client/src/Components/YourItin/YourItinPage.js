@@ -40,7 +40,6 @@ export default class YourItinPage extends Component{
 			<YourItinInfo 
 			itinerary={this.state.itinerary}
 			/>
-			<ActivityList/>
 		</div>
 		)
 	}
