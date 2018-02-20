@@ -2,9 +2,7 @@
   text-align: center;
   background-color: lightblue;
 }
-body {
-  overflow: hidden;
-}
+
 .Backdrop {
   background: #88c0e8;
   height: 1600px;
@@ -41,6 +39,7 @@ body {
 .Itinerary-box {
   width: 45%;
   border-radius: 20px;
+  border: 1px solid #88c0e8;
 }
 .Flex-vertical {
   display: flex;
@@ -52,9 +51,9 @@ body {
 }
 .Itinerary-card {
   background: rgba(255, 255, 255, 0.6);
-  border: 1px solid white;
   height: 70px;
   width: 100%;
+  margin-bottom: 3px;
 }
 .Flex-space-around {
   justify-content: space-around;
@@ -65,7 +64,9 @@ body {
 .Itin-value-styling {
   font-size: 20px;
 }
-
+.Your-itinerary-card {
+  background-color: blue;
+}
 /**/
 
 .navWhole {
@@ -80,14 +81,14 @@ body {
   background-color: yellow;
   height: 80px;
   width: 80px;
-  flex-grow: 1; 
+  flex-grow: 1;
 }
 
 .signout {
-background-color: orange;
-height: 80px;
-width: 120px;
-flex-grow: 1;
+  background-color: orange;
+  height: 80px;
+  width: 120px;
+  flex-grow: 1;
 }
 
 .emptyMenuItem {
@@ -106,7 +107,6 @@ flex-grow: 1;
   width: 130px;
 }
 .menuDropItem {
-  
   font-size: 12px;
   width: 130px;
   height: 20px;
@@ -148,7 +148,6 @@ flex-grow: 1;
   margin-left: 45%;
   margin-top: 20px;
 }*/
-
 
 .App-header {
   background-color: #222;
