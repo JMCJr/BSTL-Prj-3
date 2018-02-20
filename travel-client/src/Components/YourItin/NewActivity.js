@@ -28,7 +28,7 @@ changeActivity(ev) {
   }
   createCall(newActivity) {
     axios({
-      url: "http://localhost:8080/api/nowander/dashboard",
+      url: "http://localhost:8080/api/nowander/itinerary/:id",
       method: "POST",
       data: newActivity
     }).then(res => {

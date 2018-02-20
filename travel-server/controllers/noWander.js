@@ -55,13 +55,11 @@ router.get('/itinerary/:id',noWander.getItinerary, (req, res, next) =>{
 // Define POST request for '/itinerary/:id/newactivity', which is ONE 
 // noWanderModel.NewActivity
 // This is ______ job
+router.post("/itinerary/:id", noWander.newActivity, (req, res) => {
+  console.log(res.locals);
+  res.json(res.locals.activityId);
 
-
-
-
-
-
-
+});
 
 // ----------------------------------------------------
 // Define DELETE request for '/dashboard', which is ONE
@@ -96,4 +94,4 @@ router.delete('/itinerary/:id',noWander.deleteActivity,(req, res, next) =>{
 
 // ----------------------------------------------------
 
-module.exports = router;
+module.exports = router

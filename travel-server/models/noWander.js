@@ -107,13 +107,15 @@ noWander.newItinerary = (req, res, next) => {
 // noWanderModel.NewActivity
 // This is ______ job
 noWander.newActivity = (req, res, next) => {
-  console.log('is it working?', req.body);
+  console.log('*****newActivity', req.body);
+  console.log('*****newActivity', req.params);
   db
-  .one('INSERT INTO activity WHERE activity.itinerary_id = itinerary.id(name, description, price, votes) VALUES($1, $2, $3, $4) RETURNING id',
+  .one('INSERT INTO activity(name, description, price, votes, itinerary_id) VALUES($1, $2, $3, $4, $5) RETURNING id',
     [req.body.name,
     req.body.description,
     req.body.price,
-    req.body.budget
+    req.body.votes,
+    req.body.itinerary_id
     ]
     )
   .then(id => {
