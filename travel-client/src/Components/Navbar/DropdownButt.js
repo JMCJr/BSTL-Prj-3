@@ -19,7 +19,7 @@ export default class DropdownButt extends Component {
 
 
   renderItineraries(itinerary, index) {
-    return <MenuItem itinerary={itinerary} index={index} key={index} />;
+    return <MenuItem itinerary={itinerary} key={index} />;
   }
 
   getItins() {
