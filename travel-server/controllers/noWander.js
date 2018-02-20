@@ -28,7 +28,10 @@ router.post("/dashboard", noWander.newItinerary, (req, res) => {
 // noWanderModel.getAllActivities
 // This is Leon's job
 
-
+router.get('/itinerary/:id/activity', noWander.allActivities, (req, res) => {
+  const { activities } = res.locals;
+  res.json({ activities });
+});
 
 // NOTHING HERE FOR NOW
 

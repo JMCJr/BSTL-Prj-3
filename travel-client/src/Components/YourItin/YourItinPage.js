@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
-import YourItinInfo from './YourItinInfo'
+import YourItinInfo from './YourItinInfo';
+import ActivityList from './ActivityList';
 
 
 export default class YourItinPage extends Component{
@@ -35,9 +36,12 @@ export default class YourItinPage extends Component{
 		return <div>LOADING</div>
 	}
 	return (
-		<YourItinInfo 
-		itinerary={this.state.itinerary}
-		/>
+		<div>
+			<YourItinInfo 
+			itinerary={this.state.itinerary}
+			/>
+			<ActivityList/>
+		</div>
 		)
 	}
 }
