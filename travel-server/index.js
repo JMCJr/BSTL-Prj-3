@@ -33,8 +33,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const nowanderRoutes = require("./controllers/noWander.js");
 app.use("/api/noWander", nowanderRoutes);
 
-const usersRoutes = require("./controllers/users.js");
-app.use("/api/users", usersRoutes);
+// const usersRoutes = require("./controllers/users.js");
+// app.use("/api/users", usersRoutes);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, function() {
