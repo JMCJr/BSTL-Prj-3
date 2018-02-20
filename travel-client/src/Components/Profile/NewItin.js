@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Link,
+	Route,
+	Switch,
+	Redirect
+} from "react-router-dom";
 import axios from "axios";
 
 export default class NewItin extends Component {
@@ -33,6 +39,7 @@ export default class NewItin extends Component {
 		console.log(ev);
 		this.createCall(this.state);
 	}
+
 	render() {
 		return (
 			<div>
