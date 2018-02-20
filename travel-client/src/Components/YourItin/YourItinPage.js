@@ -29,6 +29,7 @@ export default class YourItinPage extends Component{
 	componentDidMount(){
 		this.getItinerary(this.props.match.params.id);
 	}
+
 	render(){
 		if (!this.state.dataLoaded) {
 		return <div>LOADING</div>
