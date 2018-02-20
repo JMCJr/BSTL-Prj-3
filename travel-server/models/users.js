@@ -5,7 +5,6 @@ const users = {};
 //from classroom demonstration-
 const bcrypt = require("bcryptjs");
 
-const db = require("../db/index.js");
 
 const userModelObject = {};
 var theUser;
@@ -53,8 +52,25 @@ userModelObject.findByEmailMiddleware = function findByEmailMiddleware(
 		.catch(err => console.log("ERROR:", err));
 };
 
+//-----------------------------------
+
+// usersModelObject.getUserEmail = (req, res, next)=>{
+//   const id = req.params.id;
+//   db
+//   .oneOrNone(`SELECT * FROM itinerary WHERE users.email = email;`, {email : email})
+//   .then(data => {
+//     res.locals.getUserData = data;
+//     next();
+//   })
+// .catch(error=> {
+//   console.log("error encountered in users.getUserEmail. Error",error);
+//   next();
+// })
+// };
+
+//------------------------------------
 // This section just demonstrates that we can build middleware for the user model
 // and talk to the database as usual.
 // Note that we now have access to req.user for user information, thanks to passport.
 
-module.exports = userModelObject;
+module.exports = usersModelObject;

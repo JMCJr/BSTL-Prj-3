@@ -1,5 +1,5 @@
 //from classroom demonstration- there are a few modifications made
-const User = require("../models/users");
+const Users = require("../models/users");
 const router = require("express").Router();
 const passport = require("passport");
 
@@ -9,33 +9,53 @@ const auth = require("../services/auth");
 // ----------------------------------------
 // users index
 
-router.get("/", (req, res, next) => {
-	res.redirect("/sounds/library");
-});
+// router.get("/", (req, res, next) => {
+// 	res.redirect("/sounds/library");
+// });
 
-router.post(
-	"/",
-	// we want the behavior of the site to vary depending on whether or
-	// not the user is already logged in. If they are logged in, we want
-	// to send them to /users/profile. If they are not, we want to send
-	// them to users/new.
-	passport.authenticate(
-		// The following string indicates the particular strategy instance
-		// we'll want to use to handle signup. We defined behavior for
-		// 'local-signup' back in index.js.
-		"local-signup",
-		{
-			failureRedirect: "/users/register",
-			successRedirect: "/sounds/library"
-		}
-	)
-);
+// router.post(
+// 	"/",
+			// we want the behavior of the site to vary depending on whether or
+			// not the user is already logged in. If they are logged in, we want
+			// to send them to /users/profile. If they are not, we want to send
+			// them to users/new.
+	// passport.authenticate(
+			// The following string indicates the particular strategy instance
+			// we'll want to use to handle signup. We defined behavior for
+			// 'local-signup' back in index.js.
+// 		"local-signup",
+// 		{
+// 			failureRedirect: "/users/register",
+// 			successRedirect: "/sounds/library"
+// 		}
+// 	)
+// );
 
 // ----------------------------------------
+
+// ----------------------------------------------------
+// Define GET request for 'users/:email', which is ONE 
+// usersModelObject.findByEmail
+// This is ______ job
+router.get('/users/:email', users.findByEmail, (req, res, next) =>{
+  res.json(res.locals.findByEmailData);
+});
+
+
+
+
+
+
+
+
+// ----------------------------------------------------
+
+
+
 // register new user
 
-router.get("/register", (req, res) => {
-	res.render("users/register");
+router.get("/signup", (req, res) => {
+	res.render("users/signup");
 });
 
 // ----------------------------------------
@@ -63,7 +83,7 @@ router.post(
 	"/login",
 	passport.authenticate("local-login", {
 		failureRedirect: "/users/login",
-		successRedirect: "/sounds/library"
+		successRedirect: "/dashboard/:email"
 	})
 );
 
