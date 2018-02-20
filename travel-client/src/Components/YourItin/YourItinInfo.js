@@ -1,33 +1,37 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
-import Modal from 'react-responsive-modal';
-import NewActivity from './NewActivity';
-
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
+import Modal from "react-responsive-modal";
+import NewActivity from "./NewActivity";
 
 export default class YourItinInfo extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      modalOpen : false
-    }
+      modalOpen: false
+    };
     this.modalHandler = this.modalHandler.bind(this);
   }
 
-  modalHandler(){
-    this.setState(prevState=>{
+  modalHandler() {
+    this.setState(prevState => {
       prevState.modalOpen = !prevState.modalOpen;
       return prevState;
     });
   }
 
-
-
   render() {
     const itinerary = this.props.itinerary;
-    const {modalOpen} = this.state
+    const { modalOpen } = this.state;
     return (
-    <div>  
-        <div className="Itinerary-card">
+      <div>
+        <div className="Your-itinerary-card">
+          itinerary info
           <p>Name: {itinerary.name}</p>
           <p>City: {itinerary.city}</p>
           <p>Departing: {itinerary.date_departing}</p>
@@ -37,14 +41,16 @@ export default class YourItinInfo extends Component {
 
         <div>
           <button onClick={this.modalHandler}>Open modal</button>
-          <Modal open={modalOpen} onClose={this.modalHandler} closeIconSize=
-          {8} little>
-            <NewActivity itinerary={itinerary}/>
+          <Modal
+            open={modalOpen}
+            onClose={this.modalHandler}
+            closeIconSize={8}
+            little
+          >
+            <NewActivity itinerary={itinerary} />
           </Modal>
         </div>
-     </div> 
-
-
+      </div>
     );
   }
 }
