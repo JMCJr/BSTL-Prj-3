@@ -62,6 +62,15 @@
 
 }
 
+.profilePic{
+  height: 80px;
+  width: 80px;
+  background-color: red;
+  align-content: center;
+  margin-left:45%;
+  margin-top: 20px;
+}
+
 
 
 .App-logo {

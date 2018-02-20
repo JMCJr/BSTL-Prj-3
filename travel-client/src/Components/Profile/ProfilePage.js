@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
 
 import Nav from "../Nav";
-import ItinList from "./ItinList";
+
 import NewItin from "./NewItin";
-import YourItinPage from '../YourItin/YourItinPage'
+import YourItinPage from '../YourItin/YourItinPage';
+import UserInfo from './UserInfo';
 
 export default class ProfilePage extends Component {
 	constructor(props) {
@@ -23,7 +24,7 @@ export default class ProfilePage extends Component {
 						<div>CREATE NEW ITINERARY</div>
 					</Link>
 					<Switch>
-						<Route exact path="/dashboard" component={ItinList} />
+						<Route exact path="/dashboard" component={UserInfo} />
 						<Route
 							exact
 							path="/newitinerary"
