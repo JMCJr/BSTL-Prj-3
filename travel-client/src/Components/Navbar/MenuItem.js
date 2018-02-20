@@ -13,7 +13,7 @@ class MenuItem extends Component {
       city = itinDatum.city;
 
     return (
-      <li key={index.toString()}> <Link to={`/itineraries/${itinDatum.id}`}>
+      <li key={index.toString()}> <Link to={`/itinerary/${itinDatum.id}`}>
           <p>
             {name}, {city}
           </p>

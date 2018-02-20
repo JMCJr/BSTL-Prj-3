@@ -11,7 +11,7 @@ export default class ItinList extends Component {
 
 		this.state = {
 			allItineraries: [],
-			pageLoaded: false
+			dataLoaded: false
 		};
 	}
 	renderItineraries(itinerary, index) {
