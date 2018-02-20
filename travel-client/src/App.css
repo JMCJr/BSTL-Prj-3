@@ -33,6 +33,23 @@
 
 /**/
 
+.menuContainer {
+
+}
+
+.itineraryDrop {
+  background-color: orange;
+  border: 1px solid white;
+  width: 130px;
+}
+.menuDropItem {
+  
+  font-size: 12px;
+  width: 130px;
+  background-color: darkgrey;
+  border-bottom: 1px solid white;
+}
+
 .App {
   text-align: center;
 }
