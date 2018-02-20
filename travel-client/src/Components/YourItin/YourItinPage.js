@@ -28,7 +28,13 @@ export default class YourItinPage extends Component{
 	}
 
 	componentDidMount(){
+		console.log("instance")
 		this.getItinerary(this.props.match.params.id);
+	}
+
+	componentWillReceiveProps(nextProps){
+		this.getItinerary(nextProps.match.params.id)
+		console.log("heyyy", nextProps);
 	}
 
 	render(){
