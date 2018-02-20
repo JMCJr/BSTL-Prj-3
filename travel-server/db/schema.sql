@@ -33,10 +33,10 @@ CREATE TABLE users_itinerary(
 DROP TABLE IF EXISTS activity;
 
 CREATE TABLE activity(
-	id SERIAL PRIMARY KEY,
-	name VARCHAR(255),
-	description VARCHAR(255),
-	price INTEGER,
-	votes INTEGER,
-	itinerary_id INTEGER
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  description VARCHAR(255),
+  price INTEGER,
+  votes INTEGER,
+  itinerary_id INTEGER FOREIGN KEY REFERENCES itinerary(id)
 );
