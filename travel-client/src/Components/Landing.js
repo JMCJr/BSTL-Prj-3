@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-ro
 import Signup from "./Signup";
 import Login from "./Login";
 import ProfilePage from "./Profile/ProfilePage";
-import CreateItin from "./Profile/CreateItin";
+
 
 export default class Landing extends Component {
 	render() {

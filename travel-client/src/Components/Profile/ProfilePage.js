@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-ro
 
 import Nav from "../Nav";
 import ItinList from "./ItinList";
-import CreateItin from "./CreateItin";
+import NewItin from "./NewItin";
 
 export default class ProfilePage extends Component {
 	constructor(props) {
@@ -24,7 +24,7 @@ export default class ProfilePage extends Component {
 						<Route
 							exact
 							path="/newitinerary"
-							component={CreateItin}
+							component={NewItin}
 						/>
 					</Switch>
 				</div>
