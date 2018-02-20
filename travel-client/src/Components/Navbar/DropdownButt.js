@@ -20,8 +20,11 @@ export default class DropdownButt extends Component {
 
   render() {
     console.log("in ItinList render. this.state:", this.state);
-  
-    const itin = this.props.itin.map(this.itinListItem);
+   
+    let itin;
+    if (this.props.itin){
+    itin = this.props.itin.map(this.itinListItem)
+  };
     console.log('ONE Itinerary from list:', itin);
     return (
       <div>

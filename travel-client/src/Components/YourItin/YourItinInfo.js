@@ -10,8 +10,8 @@ export default class YourItinInfo extends Component {
       <div className="Itinerary-card">
         <p>Name: {itinerary.name}</p>
         <p>City: {itinerary.city}</p>
-        <p>Departing: {itinerary.departing}</p>
-        <p>Returning: {itinerary.returning}</p>
+        <p>Departing: {itinerary.date_departing}</p>
+        <p>Returning: {itinerary.date_returning}</p>
         <p>Budget: ${itinerary.budget}</p>
       </div>
     );

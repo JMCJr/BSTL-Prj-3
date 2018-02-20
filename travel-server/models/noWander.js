@@ -53,7 +53,7 @@ noWander.allItineraries = (req, res, next)=> {
 noWander.getItinerary = (req, res, next)=>{
   const id = req.params.id;
   db
-  .one(`SELECT * FROM itinerary WHERE itinerary.id =${id};`, {id : id})
+  .one(`SELECT * FROM itinerary WHERE itinerary.id = ${id}`)
   .then(data => {
     res.locals.getItineraryData = data;
     next();

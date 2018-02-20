@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
 
-export default class CreateItin extends Component {
+export default class NewItin extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
