@@ -1,19 +1,24 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import axios from "axios";
 
-
 export default class MenuItem extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       itinerary: "",
       dataLoaded: false
-    };   
-    this.getItinerary=this.getItinerary.bind(this); 
+    };
+    this.getItinerary = this.getItinerary.bind(this);
   }
 
-  getItinerary(id){
+  getItinerary(id) {
     axios({
       url: `http://localhost:8080/api/nowander/itinerary/${id}`,
       method: "GET"
@@ -26,18 +31,17 @@ export default class MenuItem extends Component {
     });
   }
 
-  enableLink(e){
+  enableLink(e) {
     e.preventDefault();
-
   }
 
   render() {
     const itinerary = this.props.itinerary;
     return (
       <div>
-      <Link to={`/itinerary/${itinerary.id}`}>
-        <p className="menuDropItem">Name: {itinerary.name}</p>
-      </Link>
+        <Link to={`/itinerary/${itinerary.id}`}>
+          <p className="menuDropItem">Name: {itinerary.name}</p>
+        </Link>
       </div>
     );
   }
