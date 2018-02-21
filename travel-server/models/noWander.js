@@ -24,7 +24,7 @@ noWander.allActivities = (req, res, next)=>{
 // noWanderModel.getAllItineraries
 // This is _______ job
 noWander.allItineraries = (req, res, next)=> {
-  db.manyOrNone('SELECT * FROM itinerary;')
+  db.manyOrNone(`SELECT * FROM itinerary WHERE user_id = ${req.params.id}`)
   .then(itineraries =>{
     res.locals.itineraries = itineraries;
     next();

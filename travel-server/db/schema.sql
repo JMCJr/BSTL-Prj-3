@@ -1,6 +1,6 @@
 \c noWander
 
-DROP TABLE IF EXISTS users;
+-- DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users (
   id BIGSERIAL PRIMARY KEY,
@@ -19,16 +19,18 @@ CREATE TABLE itinerary(
 	city VARCHAR(255),
 	date_departing VARCHAR(255),
 	date_returning VARCHAR(255),
-	budget INTEGER
+	budget INTEGER,
+  user_id INTEGER,
+  FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
-DROP TABLE IF EXISTS users_itinerary;
+-- DROP TABLE IF EXISTS users_itinerary;
 
-CREATE TABLE users_itinerary(
- id SERIAL PRIMARY KEY,
- user_id INTEGER,
- itinerary_id INTEGER 
-);
+-- CREATE TABLE users_itinerary(
+--  id SERIAL PRIMARY KEY,
+--  user_id INTEGER,
+--  itinerary_id INTEGER 
+-- );
 
 DROP TABLE IF EXISTS activity;
 
