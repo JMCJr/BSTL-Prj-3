@@ -40,7 +40,7 @@ User.create = function(req, res, next) {
 };
 
 User.findByEmail = function(email) {
-  return db.one("SELECT * FROM users WHERE username = $1;", [email]);
+  return db.one("SELECT * FROM users WHERE email = $1;", [email]);
 };
 
 User.login = function(req, res, next) {
