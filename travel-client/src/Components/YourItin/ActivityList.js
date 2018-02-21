@@ -1,4 +1,3 @@
-
 import React, { Component } from "react";
 import {
   BrowseRouter as Router,
@@ -21,7 +20,15 @@ export default class ActivityList extends Component {
     };
   }
   renderActivities(activity, index) {
-    return <Activity getActivities = {this.getActivities} itineraryID={this.props.itinerary.id} activity={activity} index={index} key={index} />;
+    return (
+      <Activity
+        getActivities={this.getActivities}
+        itineraryID={this.props.itinerary.id}
+        activity={activity}
+        index={index}
+        key={index}
+      />
+    );
   }
 
   getActivities(id) {
@@ -44,10 +51,8 @@ export default class ActivityList extends Component {
     if (!this.state.dataLoaded) {
       return "PAGE LOADINGGG";
     }
- 
 
     const activities = this.state.allActivities.map(this.renderActivities);
     return <div>{activities}</div>;
   }
 }
-
