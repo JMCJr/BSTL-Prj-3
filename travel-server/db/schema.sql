@@ -11,7 +11,7 @@ CREATE TABLE users (
   password_digest VARCHAR NOT NULL
 );
 
-DROP TABLE IF EXISTS itinerary;
+DROP TABLE IF EXISTS itinerary CASCADE;
 
 CREATE TABLE itinerary(
 	id SERIAL PRIMARY KEY,
