@@ -15,9 +15,12 @@ export default class YourItinPage extends Component {
 		super(props);
 		this.state = {
 			dataLoaded: false,
-			itinerary: ""
+			itinerary: "",
+			allActivities: []
 		};
 		this.getItinerary = this.getItinerary.bind(this);
+		this.getActivities = this.getActivities.bind(this);
+		this.newActivityPost = this.newActivityPost.bind(this);
 	}
 	getItinerary(id) {
 		axios({
@@ -31,10 +34,32 @@ export default class YourItinPage extends Component {
 			});
 		});
 	}
-
+	newActivityPost(newActivity) {
+		const id = newActivity.itinerary_id;
+		axios({
+			url: `http://localhost:8080/api/nowander/itinerary/${id}`,
+			method: "POST",
+			data: newActivity
+		}).then(res => {
+			console.log(res);
+			this.getActivities(id);
+		});
+	}
 	componentDidMount() {
 		console.log("instance");
 		this.getItinerary(this.props.match.params.id);
+	}
+	getActivities(id) {
+		axios({
+			url: `http://localhost:8080/api/nowander/itinerary/${id}/activity`,
+			method: "GET"
+		}).then(response => {
+			console.log(response);
+			this.setState({
+				allActivities: response.data.activities,
+				dataLoaded: true
+			});
+		});
 	}
 
 	componentWillReceiveProps(nextProps) {
@@ -49,7 +74,12 @@ export default class YourItinPage extends Component {
 		return (
 			<div>
 				<YourItinInfo itinerary={this.state.itinerary} />
-				<ActivityList itinerary={this.state.itinerary} />
+				<ActivityList
+					itinerary={this.state.itinerary}
+					getActivities={this.getActivities}
+					allActivities={this.state.allActivities}
+					newActivityPost={this.newActivityPost}
+				/>
 			</div>
 		);
 	}

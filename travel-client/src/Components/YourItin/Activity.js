@@ -20,7 +20,6 @@ export default class Activity extends Component {
       method: "DELETE"
     }).then(response => {
       console.log(response);
-      // this.props.getActivities();
     });
   }
 
@@ -31,11 +30,13 @@ export default class Activity extends Component {
   render() {
     const activity = this.props.activity;
     return (
-      <div className="Activity-card">
-        <p>Name: {activity.name}</p>
-        <p>Description: {activity.description}</p>
-        <p>Price: {activity.price}</p>
-        <button onClick={this.deleteHandler}>Delete</button>
+      <div>
+        <div className="Activity-card">
+          <p>Name: {activity.name}</p>
+          <p>Description: {activity.description}</p>
+          <p>Price: {activity.price}</p>
+          <button onClick={this.deleteHandler}>Delete</button>
+        </div>
       </div>
     );
   }
