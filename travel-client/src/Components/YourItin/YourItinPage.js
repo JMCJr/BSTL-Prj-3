@@ -73,14 +73,12 @@ export default class YourItinPage extends Component {
 		}
 		return (
 			<div>
-				<YourItinInfo
-					itinerary={this.state.itinerary}
-					newActivityPost={this.newActivityPost}
-				/>
+				<YourItinInfo itinerary={this.state.itinerary} />
 				<ActivityList
 					itinerary={this.state.itinerary}
 					getActivities={this.getActivities}
 					allActivities={this.state.allActivities}
+					newActivityPost={this.newActivityPost}
 				/>
 			</div>
 		);

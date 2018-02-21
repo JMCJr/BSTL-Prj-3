@@ -40,7 +40,7 @@
 }
 .Itinerary-box {
   width: 45%;
-  border-radius: 20px;
+  border-radius: 5px;
   border: 1px solid #88c0e8;
 }
 .Flex-vertical {
@@ -67,10 +67,36 @@
   font-size: 20px;
 }
 .Your-itinerary-card {
-  background-color: white;
+  height: 200px;
+  width: 700px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.Your-itin {
+  position: relative;
+  height: 250px;
+  background: red;
 }
 .Your-itinerary-card-box {
   background: pink;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #88c0e8;
+  padding: 5px;
+}
+.Your-itin-top {
+  flex: 5;
+}
+.Your-itin-inner {
+  margin: 0 30px;
+}
+.Your-itin-outter {
+  flex: 2;
+}
+.Your-itin-heading {
+  text-align: left;
+  color: white;
 }
 /**/
 
