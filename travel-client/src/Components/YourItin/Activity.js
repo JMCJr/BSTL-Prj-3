@@ -15,7 +15,7 @@ export default class Activity extends Component {
   method:"DELETE"
  }).then(response =>{
   console.log(response);
-  // this.props.getActivities();
+  this.props.getActivities();
  })
  } 
 
