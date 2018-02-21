@@ -164,5 +164,103 @@ noWander.deleteActivity = (req, res, next) => {
     });
 };
 // ----------------------------------------------------
+// _____________________________________________________
+
+// update attempts 2/21
+
+noWander.update = (req, res, next) => {
+  console.log("req.body:", req.body);
+  let { name, description, price, votes, itinerary_id } = req.body;
+  db
+    .one(
+      "UPDATE activity SET name=$1, description=$2, price=$3, votes=$4, itinerary_id=$5 WHERE id=$6 RETURNING id;",
+      [name, description, price, votes, itinerary_id, req.params.id]
+    )
+    .then(activityId => {
+      res.locals.activityId = activityId;
+      next();
+    })
+    .catch(err => {
+      console.log("error encountered in Activity.update, err:", err);
+      next(err);
+    });
+};
+
+
+
+
+noWander.update = (req, res, next) => {
+  console.log("req.body:", req.body);
+  let { name, city, date_departing, date_returning, budget } = req.body;
+  db
+    .one(
+      "UPDATE itinerary SET name=$1, city=$2, date_departing=$3, date_returning=$4, budget=$5 WHERE id=$6 RETURNING id;",
+      [name, description, price, votes, itinerary_id, req.params.id]
+    )
+    .then(itineraryId => {
+      res.locals.activityId = activityId;
+      next();
+    })
+    .catch(err => {
+      console.log("error encountered in itinerary.update, err:", err);
+      next(err);
+    });
+};
+
+
+
+noWander.update = (req, res, next) => {
+  console.log("req.body:", req.body);
+  let { fname, lname, email, username, password_digest } = req.body;
+  db
+    .one(
+      "UPDATE users SET fname=$1, lname=$2, email=$3, username=$4, password_digest=$5 WHERE id=$6 RETURNING id;",
+      [fname, lname, email, username, password_digest, req.params.id]
+    )
+    .then(usersId => {
+      res.locals.usersId = usersId;
+      next();
+    })
+    .catch(err => {
+      console.log("error encountered in users.update, err:", err);
+      next(err);
+    });
+};
+
+
+
 
 module.exports = noWander;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

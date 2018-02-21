@@ -43,3 +43,13 @@ CREATE TABLE activity(
   itinerary_id INTEGER,
   FOREIGN KEY (itinerary_id) REFERENCES itinerary(id)
 );
+
+
+
+
+
+
+
+
+
+

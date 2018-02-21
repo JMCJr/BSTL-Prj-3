@@ -74,6 +74,53 @@ router.delete(
 );
 
 // ----------------------------------------------------
+// ____________________________________________________
+// added these EDIT/PuT routes 2/21
+
+router.put('/activity/:id', noWander.updateActivity, (req, res) => {
+  console.log('in PUT an activity/, res.locals:', res.locals);
+  res.json(res.locals.activityId);
+})
+
+
+router.put('/itinerary/:id', noWander.updateItinerary, (req, res) => {
+  console.log('updated an itinerary/, res.locals:', res.locals);
+  res.json(res.locals.itineraryId);
+})
+
+router.put('/user/:id', noWander.updateUser, (req, res) => {
+  console.log('updated a user/, res.locals:', res.locals);
+  res.json(res.locals.userId);
+})
+
+
+
+
+
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ----------------------------------------------------
 

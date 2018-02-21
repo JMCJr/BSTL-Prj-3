@@ -5,15 +5,25 @@ import axios from "axios";
 import Landing from "./Components/Landing";
 import ProfilePage from "./Components/Profile/ProfilePage";
 import TokenService from "./services/TokenService";
+import EditYourItinForm from "./Components/YourItin/EditYourItinForm";
+import EditUserProfileForm from "./Components/YourItin/EditUserProfileForm";
+import EditYourActivityForm from "./Components/YourItin/EditYourActivityForm"; 
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       login: false,
-      itineraries: []
+      itineraries: [],
+      activities: [],
+        users: []
+
     };
     this.queryItins = this.queryItins.bind(this);
+    this.editYourItinForm = this.editYourItinForm.bind(this);
+    this.editUserProfileForm = this.editUserProfileForm.bind(this);
+    this.editYourActivityForm = this.editYourActivityForm.bind(this);
   }
 
   login(data) {
@@ -52,8 +62,62 @@ class App extends Component {
     });
   }
 
+  // _______________Leon 2/21
+
+editYourItinForm(data) {
+    axios({
+      url: `http://localhost:8080/api/noWander/itinerary/${data.id}`,
+      method: "put", 
+      data
+    }).then(response => {
+      console.log(
+        "In App.editYourItinForm, received response from server. response.data:",
+        response.data
+      );
+      this.setState(previousState => {return { itinerary: previousState.itinerary.concat(response.data) }});
+    })
+  }
+
+
+
+  editUserProfileForm(data) {
+    axios({
+      url: `http://localhost:8080/api/noWander/users/${data.id}`,
+      method: "put", 
+      data
+    }).then(response => {
+      console.log(
+        "In App.editUserProfileForm, received response from server. response.data:",
+        response.data
+      );
+      this.setState(previousState => {return { users: previousState.users.concat(response.data) }});
+    })
+  }
+
+
+editYourActivityForm(data) {
+    axios({
+      url: `http://localhost:8080/api/noWander/activity/${data.id}`,
+      method: "put", 
+      data
+    }).then(response => {
+      console.log(
+        "In App.editYourActivityForm, received response from server. response.data:",
+        response.data
+      );
+      this.setState(previousState => {return { activity: previousState.activity.concat(response.data) }});
+    })
+  }
+
+
+
+
+
+
+// _______________________
   componentDidMount() {
     this.queryItins();
+
   }
 
   render() {
