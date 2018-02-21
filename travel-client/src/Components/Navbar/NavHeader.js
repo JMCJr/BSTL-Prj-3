@@ -9,7 +9,28 @@ import {
 import DropdownButt from "./DropdownButt";
 
 export default class NavHeader extends Component {
+  constructor(props) {
+    super(props);
+    this.handleOpenMenu = this.handleOpenMenu.bind(this);
+    this.state = { menuIsOpen: false };
+  }
+  handleOpenMenu(e) {
+    e.preventDefault();
+    this.setState(prevState => {
+      const nextState = { menuIsOpen: !prevState.menuIsOpen };
+      return nextState;
+    });
+  }
+
   render() {
+    let maybeMenuOpen = null;
+    if (this.state.menuIsOpen) {
+      maybeMenuOpen = (
+        <div className="dropWhole">
+          <DropdownButt />
+        </div>
+      );
+    }
     return (
       <div className="navWhole">
         <Link to={"/dashboard"}>
@@ -20,8 +41,8 @@ export default class NavHeader extends Component {
             Sign out
           </p>
         </button>
-        <div />
-        <DropdownButt className="dropWhole" />
+        <button onClick={this.handleOpenMenu} />
+        {maybeMenuOpen}
       </div>
     );
   }
