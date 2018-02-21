@@ -8,7 +8,8 @@ const noWander = {};
 // noWanderModel.getAllActivities
 // This is _______ job
 noWander.allActivities = (req, res, next)=>{
-  db.manyOrNone('SELECT * FROM activity;')
+  console.log(req.params.id);
+  db.manyOrNone(`SELECT * FROM activity WHERE itinerary_id = ${req.params.id}`)
   .then(activities => {
     res.locals.activities = activities;
     next();

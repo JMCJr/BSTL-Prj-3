@@ -21,7 +21,7 @@ export default class ActivityList extends Component {
     };
   }
   renderActivities(activity, index) {
-    return <Activity activity={activity} index={index} key={index} />;
+    return <Activity getActivities = {this.getActivities} itineraryID={this.props.itinerary.id} activity={activity} index={index} key={index} />;
   }
 
   getActivities(id) {
