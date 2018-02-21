@@ -7,8 +7,8 @@ CREATE TABLE users (
   fname VARCHAR(255) NOT NULL,
   lname VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL UNIQUE,
-  username VARCHAR(20) UNIQUE
-  -- password_digest VARCHAR NOT NULL
+  username VARCHAR(20) UNIQUE,
+  password_digest VARCHAR NOT NULL
 );
 
 DROP TABLE IF EXISTS itinerary;
@@ -38,5 +38,6 @@ CREATE TABLE activity(
   description VARCHAR(255),
   price INTEGER,
   votes INTEGER,
-  itinerary_id INTEGER FOREIGN KEY REFERENCES itinerary(id)
+  itinerary_id INTEGER,
+  FOREIGN KEY (itinerary_id) REFERENCES itinerary(id)
 );

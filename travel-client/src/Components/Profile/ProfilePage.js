@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
+import {
+	BrowserRouter as Router,
+	Link,
+	Route,
+	Switch,
+	Redirect
+} from "react-router-dom";
 import NavHeader from "../Navbar/NavHeader";
 import ItinList from "./ItinList";
 import NewItin from "./NewItin";
@@ -17,7 +23,7 @@ export default class ProfilePage extends Component {
 		return (
 			<Router>
 				<div>
-					<NavHeader />
+					<NavHeader logout={this.props.logout} />
 					<Link to="/newitinerary">
 						<div>CREATE NEW ITINERARY</div>
 					</Link>

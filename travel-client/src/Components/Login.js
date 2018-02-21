@@ -1,67 +1,42 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import ProfilePage from "./Profile/ProfilePage";
-import axios from 'axios';
+import LoginForm from "./LoginForm";
+import axios from "axios";
+import TokenService from "../services/TokenService";
 
 export default class Login extends Component {
-
-constructor(props) {
+  constructor(props) {
     super(props);
 
     this.state = {
       email: ""
-      // password: "",
     };
-    
-    this.submitLogin = this.submitLogin.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-submitLogin(e) {
-    e.preventDefault();
-    axios({
-      url: "http://localhost:8080/api/nowander/dashboard",
-      method: "GET",
-      data: this.state
-    }).then(response => {
-      console.log("post successful, response.data:", response.data);
-      this.props.queryItins();
-      this.props.history.push("/dashboard/user");
-    });
+  onSubmit(data) {
+    console.log(`handling submit: ${data}`);
+    this.props.login(data);
   }
 
   render() {
     return (
       <div className="App Backdrop">
         <div className="login">
-            <h3>LOGIN</h3>
-            <form onSubmit={this.submitLogin}>
-              <input
-                type="text"
-                name="email"
-                placeholder="email"
-
-              />
-                <br />
-              <input
-                type="text"
-                name="password"
-                placeholder="password"
-
-               />
-                <br />
-              <input
-                type="submit"
-              />
-            </form>
-            
-        <Link to="/dashboard">
-          <h1>ENTER</h1>
-        </Link>
-        <br/>
+          <h3>LOGIN</h3>
+          <LoginForm submit={this.onSubmit} />
+          <br />
           <Link to="/signup">
             <p>Sign Up</p>
           </Link>
-          </div>
+        </div>
       </div>
     );
   }
