@@ -2,37 +2,38 @@ const axios = require("axios");
 const db = require("../db/index.js");
 const noWander = {};
 
-
 // ----------------------------------------------------
 // middleware
 // noWanderModel.getAllActivities
 // This is _______ job
-noWander.allActivities = (req, res, next)=>{
+noWander.allActivities = (req, res, next) => {
   console.log(req.params.id);
-  db.manyOrNone(`SELECT * FROM activity WHERE itinerary_id = ${req.params.id}`)
-  .then(activities => {
-    res.locals.activities = activities;
-    next();
-  })
-  .catch(error =>{
-    console.log("error encountered in noWander.allActivities. Error", error);
-    next(error);
-})
+  db
+    .manyOrNone(`SELECT * FROM activity WHERE itinerary_id = ${req.params.id}`)
+    .then(activities => {
+      res.locals.activities = activities;
+      next();
+    })
+    .catch(error => {
+      console.log("error encountered in noWander.allActivities. Error", error);
+      next(error);
+    });
 };
 // ----------------------------------------------------
 // middleware
 // noWanderModel.getAllItineraries
 // This is _______ job
-noWander.allItineraries = (req, res, next)=> {
-  db.manyOrNone('SELECT * FROM itinerary;')
-  .then(itineraries =>{
-    res.locals.itineraries = itineraries;
-    next();
-  })
-.catch(error=>{
-  console.log("error encountered in noWander.allItineraries. Error", error);
-  next(error);
-})
+noWander.allItineraries = (req, res, next) => {
+  db
+    .manyOrNone("SELECT * FROM itinerary;")
+    .then(itineraries => {
+      res.locals.itineraries = itineraries;
+      next();
+    })
+    .catch(error => {
+      console.log("error encountered in noWander.allItineraries. Error", error);
+      next(error);
+    });
 };
 
 // noWander.allItineraries = (req, res, next) => {
@@ -46,26 +47,25 @@ noWander.allItineraries = (req, res, next)=> {
 //     .catch(err => console.log(err));
 // };
 
-
 // ----------------------------------------------------
 // middleware
 // noWanderModel.getOneItinerary
 // This is ______ job
-noWander.getItinerary = (req, res, next)=>{
+noWander.getItinerary = (req, res, next) => {
   const id = req.params.id;
   db
-  .one(`SELECT * FROM itinerary WHERE itinerary.id = ${id}`)
-  .then(data => {
-    res.locals.getItineraryData = data;
-    next();
-  })
-.catch(error=> {
-  console.log("error encountered in noWander.getItinerary. Error",error);
-  next();
-})
+    .one(`SELECT * FROM itinerary WHERE itinerary.id = ${id}`)
+    .then(data => {
+      res.locals.getItineraryData = data;
+      next();
+    })
+    .catch(error => {
+      console.log("error encountered in noWander.getItinerary. Error", error);
+      next();
+    });
 };
 // ----------------------------------------------------
-// middleware 
+// middleware
 // noWanderModel.NewItinerary
 // This is ______ job
 
@@ -82,7 +82,6 @@ noWander.getItinerary = (req, res, next)=>{
 //   next()
 // })
 // };
-
 
 noWander.newItinerary = (req, res, next) => {
   console.log("OOKKK", req.body);
@@ -108,53 +107,48 @@ noWander.newItinerary = (req, res, next) => {
 // noWanderModel.NewActivity
 // This is ______ job
 noWander.newActivity = (req, res, next) => {
-  console.log('*****newActivity', req.body);
-  console.log('*****newActivity', req.params);
+  console.log("*****newActivity", req.body);
+  console.log("*****newActivity", req.params);
   db
-  .one('INSERT INTO activity(name, description, price, votes, itinerary_id) VALUES($1, $2, $3, $4, $5) RETURNING id',
-    [req.body.name,
-    req.body.description,
-    req.body.price,
-    req.body.votes,
-    req.body.itinerary_id
-    ]
+    .one(
+      "INSERT INTO activity(name, description, price, votes, itinerary_id) VALUES($1, $2, $3, $4, $5) RETURNING *",
+      [
+        req.body.name,
+        req.body.description,
+        req.body.price,
+        req.body.votes,
+        req.body.itinerary_id
+      ]
     )
-  .then(id => {
-    res.locals.activityId = id;
-    next();
-  });
+    .then(response => {
+      res.locals.activity = response;
+      next();
+    });
 };
-
-
-
-
-
-
-
 
 // ----------------------------------------------------
 // middleware
 // noWanderModel.deleteOneItinerary
 // This is _______ job
-noWander.deleteItinerary = (req, res, next) =>{
+noWander.deleteItinerary = (req, res, next) => {
   db
-  .none('DELETE FROM itinerary where itinerary.id = $1',[req.params.id])
-  .then(()=>{
-    next();
-  })
-}
+    .none("DELETE FROM itinerary where itinerary.id = $1", [req.params.id])
+    .then(() => {
+      next();
+    });
+};
 // ----------------------------------------------------
-// middleware 
+// middleware
 // noWanderModel.deleteOneActivity
 // This is ______ job
-noWander.deleteActivity = (req, res, next) =>{
+noWander.deleteActivity = (req, res, next) => {
+  console.log("***", req.params);
   db
-  .none('DELETE FROM activity where activity.id = $1',[req.params.id])
-  .then(()=>{
-    next();
-  })
-}
+    .none("DELETE FROM activity WHERE activity.id = $1;", [req.params.id])
+    .then(() => {
+      next();
+    });
+};
 // ----------------------------------------------------
-
 
 module.exports = noWander;

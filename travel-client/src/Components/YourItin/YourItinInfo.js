@@ -30,13 +30,17 @@ export default class YourItinInfo extends Component {
     const { modalOpen } = this.state;
     return (
       <div>
-        <div className="Your-itinerary-card">
-          <h2>{itinerary.name}</h2>
-          <div>City: {itinerary.city}</div>
-          <div>Departing: {itinerary.date_departing}</div>
-          <div>Returning: {itinerary.date_returning}</div>
-          <div>Budget: ${itinerary.budget}</div>
-          <div className="Itin-edit-button">Edit Itinerary</div>
+        <div className="Your-itinerary-card Centered-true">
+          <span>
+            <h2>{itinerary.name}</h2>
+          </span>
+          <div className="Your-itinerary-card-box">
+            <div>To:</div>
+            <div>City: {itinerary.city}</div>
+            <div>Departing: {itinerary.date_departing}</div>
+            <div>Returning: {itinerary.date_returning}</div>
+            <div>Budget: ${itinerary.budget}</div>
+          </div>
         </div>
 
         <div>
@@ -47,7 +51,11 @@ export default class YourItinInfo extends Component {
             closeIconSize={8}
             little
           >
-            <NewActivity itinerary={itinerary} />
+            <NewActivity
+              itinerary={itinerary}
+              modalHandler={this.modalHandler}
+              newActivityPost={this.props.newActivityPost}
+            />
           </Modal>
         </div>
       </div>

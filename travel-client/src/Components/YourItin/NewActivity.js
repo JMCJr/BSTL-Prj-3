@@ -24,19 +24,13 @@ export default class NewActivity extends Component {
       [ev.target.name]: ev.target.value
     });
   }
-  createCall(newActivity) {
-    axios({
-      url: "http://localhost:8080/api/nowander/itinerary/:id",
-      method: "POST",
-      data: newActivity
-    }).then(res => {
-      console.log(res);
-    });
-  }
+  c;
   submitActivity(ev) {
     ev.preventDefault();
     console.log(ev);
-    this.createCall(this.state);
+    this.props.newActivityPost(this.state);
+    this.props.modalHandler();
+    //closes modal and re-renders the page
   }
 
   render() {
