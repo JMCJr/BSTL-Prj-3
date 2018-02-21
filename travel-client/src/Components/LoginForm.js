@@ -32,7 +32,7 @@ export default class LoginForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name
+          Email
           <input
             type="text"
             name="email"
