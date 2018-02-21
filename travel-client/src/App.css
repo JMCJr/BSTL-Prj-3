@@ -8,7 +8,9 @@
   height: 1600px;
   width: 100vw;
 }
-
+.Hidden {
+  display: none;
+}
 .App-header {
   background-color: #222;
   height: 150px;
@@ -65,7 +67,7 @@
   font-size: 20px;
 }
 .Your-itinerary-card {
-  background-color: blue;
+  background-color: white;
 }
 /**/
 

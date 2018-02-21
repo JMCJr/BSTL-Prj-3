@@ -8,20 +8,18 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 
-
 export default class NewActivity extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       name: "",
-      description:"",
-      price:"",
+      description: "",
+      price: "",
       votes: 0,
       itinerary_id: props.itinerary.id
-    }
-
+    };
   }
-changeActivity(ev) {
+  changeActivity(ev) {
     this.setState({
       [ev.target.name]: ev.target.value
     });
@@ -41,10 +39,10 @@ changeActivity(ev) {
     this.createCall(this.state);
   }
 
-
   render() {
     return (
       <form onSubmit={this.submitActivity.bind(this)}>
+        <h1>NewActivity</h1>
         <label>
           <br />
           <input
@@ -75,7 +73,7 @@ changeActivity(ev) {
             onChange={this.changeActivity.bind(this)}
           />
         </label>
-        <input type="submit"/>
+        <input type="submit" />
         <div className="Hidden">
           <label>
             <br />
@@ -97,7 +95,6 @@ changeActivity(ev) {
               onChange={this.changeActivity.bind(this)}
             />
           </label>
-
         </div>
       </form>
     );

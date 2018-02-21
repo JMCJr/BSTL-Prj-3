@@ -31,12 +31,12 @@ export default class YourItinInfo extends Component {
     return (
       <div>
         <div className="Your-itinerary-card">
-          itinerary info
-          <p>Name: {itinerary.name}</p>
-          <p>City: {itinerary.city}</p>
-          <p>Departing: {itinerary.date_departing}</p>
-          <p>Returning: {itinerary.date_returning}</p>
-          <p>Budget: ${itinerary.budget}</p>
+          <h2>{itinerary.name}</h2>
+          <div>City: {itinerary.city}</div>
+          <div>Departing: {itinerary.date_departing}</div>
+          <div>Returning: {itinerary.date_returning}</div>
+          <div>Budget: ${itinerary.budget}</div>
+          <div className="Itin-edit-button">Edit Itinerary</div>
         </div>
 
         <div>

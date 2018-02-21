@@ -28,7 +28,10 @@ export default class ProfilePage extends Component {
 						<div>CREATE NEW ITINERARY</div>
 					</Link>
 					<Switch>
-						<Route exact path="/itinerary/:id" component={YourItinPage} />
+						<Route
+							path="/dashboard/itinerary/:id"
+							component={YourItinPage}
+						/>
 						<Route exact path="/newitinerary" component={NewItin} />
 						<Route exact path="/dashboard" component={ItinList} />
 					</Switch>

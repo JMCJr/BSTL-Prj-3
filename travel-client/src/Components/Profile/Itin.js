@@ -19,10 +19,8 @@ export default class Itin extends Component {
 				<div className="Flex-vertical">
 					<div className="Flex-horizontal Flex-space-around">
 						<div>
-							<span className="Itin-category-styling">
-								Trip:{" "}
-							</span>
-							<Link to={`/itinerary/${itinerary.id}`}>
+							<span className="Itin-category-styling">Trip:</span>
+							<Link to={`/dashboard/itinerary/${itinerary.id}`}>
 								<span className="Itin-value-styling">
 									{itinerary.name}
 								</span>
