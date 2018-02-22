@@ -29,6 +29,9 @@ export default class Login extends Component {
   render() {
     return (
       <div className="App Backdrop">
+        <button className="signout" onClick={this.props.logout}>
+          Sign out
+        </button>
         <div className="login">
           <h3>LOGIN</h3>
           <LoginForm submit={this.onSubmit} />

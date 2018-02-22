@@ -15,15 +15,13 @@ export default class ProfilePage extends Component {
 	constructor(props) {
 		super(props);
 	}
-
+	componentDidMount() {
+		console.log("ProfilePage mount");
+	}
 	render() {
 		return (
 			<Router>
 				<div>
-					<NavHeader logout={this.props.logout} />
-					<Link to="/dashboard/newitinerary">
-						<div>CREATE NEW ITINERARY</div>
-					</Link>
 					<Switch>
 						<Route
 							path="/dashboard/itinerary/:id"
@@ -39,7 +37,18 @@ export default class ProfilePage extends Component {
 								/>
 							)}
 						/>
-						<Route exact path="/dashboard" component={ItinList} />
+						<Route
+							exact
+							path="/dashboard"
+							render={props => (
+								<ItinList
+									{...props}
+									queryItins={this.props.queryItins}
+									itineraries={this.props.itineraries}
+									dataLoaded={this.props.dataLoaded}
+								/>
+							)}
+						/>
 					</Switch>
 				</div>
 			</Router>

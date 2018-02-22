@@ -1,50 +1,106 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import "./App.css";
 import axios from "axios";
-import Landing from "./Components/Landing";
+// import Landing from "./Components/Landing";
+import Signup from "./Components/Signup";
+import Login from "./Components/Login";
 import ProfilePage from "./Components/Profile/ProfilePage";
+
+//
 import TokenService from "./services/TokenService";
 import EditYourItinForm from "./Components/YourItin/EditYourItinForm";
 import EditUserProfileForm from "./Components/YourItin/EditUserProfileForm";
 import EditYourActivityForm from "./Components/YourItin/EditYourActivityForm";
 
+//ROUTES FROM PROFILE PAGE
+import NavHeader from "./Components/Navbar/NavHeader";
+import ItinList from "./Components/Profile/ItinList";
+import NewItin from "./Components/Profile/NewItin";
+import YourItinPage from "./Components/YourItin/YourItinPage";
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      login: false,
+      isLoggedIn: "WAITING",
       itineraries: [],
       activities: [],
-      users: []
+      user: [],
+      dataLoaded: false
     };
     this.queryItins = this.queryItins.bind(this);
     this.editYourItinForm = this.editYourItinForm.bind(this);
     this.editUserProfileForm = this.editUserProfileForm.bind(this);
     this.newItinerary = this.newItinerary.bind(this);
+    // SIGN IN FEATURES BIND
+    this.login = this.login.bind(this);
+    this.register = this.register.bind(this);
+    this.checkLogin = this.checkLogin.bind(this);
+    this.logout = this.logout.bind(this);
   }
-
+  //BEGIIN AUTH USER LOGIN STUFF
   login(data) {
+    console.log("LOGINING");
+
+    console.log("LOGIN - BEFORE AXIOS", this.state);
+
     axios("http://localhost:3000/users/login", {
       method: "POST",
       data
     })
       .then(resp => {
         TokenService.save(resp.data.token);
+        console.log("LOGIN RESPONSE", resp);
+        this.setState(
+          {
+            isLoggedIn: "YES",
+            user: resp.data.user
+          },
+          console.log("LOGIN - AFRTRE AXIOS", this.state)
+        );
       })
       .catch(err => console.log(`err: ${err}`));
   }
 
   register(data) {
+    console.log("REGISTTERING");
+    this.setState({
+      isLoggedIn: "WAITING"
+    });
     axios("http://localhost:3000/users/", {
       method: "POST",
       data
     })
       .then(resp => {
         TokenService.save(resp.data.token);
+        this.setState({
+          isLoggedIn: "YES",
+          user: resp.data.user
+        });
       })
       .catch(err => console.log(`err: ${err}`));
   }
+
+  logout(e) {
+    console.log("LOGIUTTTT");
+    e.preventDefault();
+    TokenService.destroy();
+    this.setState({
+      isLoggedIn: "NO",
+      user: ""
+    });
+  }
+
+  //END AUTH USER LOGIN STUFF
+
+  //
   newItinerary(newItinerary) {
     axios({
       url: "http://localhost:8080/api/nowander/dashboard",
@@ -55,17 +111,16 @@ class App extends Component {
     });
   }
 
-  logout(e) {
-    e.preventDefault();
-    TokenService.destroy();
-  }
-
   queryItins() {
+    console.log("***- queryItins");
     axios("http://localhost:8080/api/nowander/dashboard").then(response => {
       console.log("got a response. response.data:", response.data);
       const itins = response.data.itineraries;
 
-      this.setState({ itineraries: response.data.itineraries });
+      this.setState({
+        itineraries: response.data.itineraries,
+        dataLoaded: true
+      });
     });
   }
 
@@ -103,25 +158,136 @@ class App extends Component {
     });
   }
 
+  // checkLogin() {
+  // if (TokenService.read() === null) {
+  //   this.setState(
+  //     {
+  //       isLoggedIn: "NO"
+  //     },
+  //     console.log("IN checkLogin: ", this.state)
+  //   );
+  // } else {
+  //   this.setState(
+  //     {
+  //       isLoggedIn: "YES"
+  //     },
+  //     console.log("IN checkLogin: ", this.state)
+  //   );
+  // }
+  checkLogin() {
+    this.setState({
+      isLoggedIn: "WAITING"
+    });
+    axios("http://localhost:3000/isLoggedIn", {
+      headers: {
+        Authorization: `Bearer ${TokenService.read()}`
+      }
+    })
+      .then(resp => {
+        console.log(resp);
+        this.setState(
+          {
+            isLoggedIn: resp.data.isLoggedIn
+          },
+          this.queryItins()
+        );
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
   // _______________________
   componentDidMount() {
-    this.queryItins();
     console.log("The token Serv: ", TokenService.read());
+    this.checkLogin();
   }
 
   render() {
-    return (
-      <Router>
-        <div className="App">
-          <Landing
-            newItinerary={this.newItinerary}
-            register={this.register}
-            login={this.login}
-            logout={this.logout}
-          />
-        </div>
-      </Router>
-    );
+    if (this.state.isLoggedIn === "WAITING") {
+      return <div>LOADING</div>;
+    } else if (this.state.isLoggedIn === "YES") {
+      console.log("TRYING TO GO TO PROFILE");
+      return (
+        <Router>
+          <div className="App">
+            <div className="App Backdrop">
+              <NavHeader logout={this.logout} />
+              <Link to="/dashboard/newitinerary">
+                <div>CREATE NEW ITINERARY</div>
+              </Link>
+              <Switch>
+                {" "}
+                <Route
+                  path="/login"
+                  render={() => <Redirect to="/dashboard" />}
+                />
+                <Route
+                  exact
+                  path="/dashboard"
+                  render={props => (
+                    <ProfilePage
+                      {...props}
+                      queryItins={this.queryItins}
+                      logout={this.logout}
+                      newItinerary={this.newItinerary}
+                      itineraries={this.state.itineraries}
+                      dataLoaded={this.state.dataLoaded}
+                    />
+                  )}
+                />
+                <Route
+                  path="/dashboard/itinerary/:id"
+                  component={YourItinPage}
+                />
+                <Route
+                  path="/dashboard/newitinerary"
+                  render={props => (
+                    <NewItin {...props} newItinerary={this.newItinerary} />
+                  )}
+                />
+                <Route
+                  exact
+                  path="/dashboard"
+                  render={props => (
+                    <ItinList
+                      {...props}
+                      queryItins={this.queryItins}
+                      itineraries={this.itineraries}
+                      dataLoaded={this.dataLoaded}
+                    />
+                  )}
+                />
+              </Switch>
+            </div>
+          </div>
+        </Router>
+      );
+    } else if (this.state.isLoggedIn === "NO") {
+      return (
+        <Router>
+          <div className="App">
+            <div className="App Backdrop">
+              <Switch>
+                <Route
+                  path="/login"
+                  render={props => (
+                    <Login {...props} login={this.login} logout={this.logout} />
+                  )}
+                />
+                <Route
+                  path="/signup"
+                  render={props => (
+                    <Signup {...props} register={this.register} />
+                  )}
+                />
+                <Route path="/" render={() => <Redirect to="/login" />} />
+              </Switch>
+            </div>
+          </div>
+        </Router>
+      );
+    }
   }
 }
 

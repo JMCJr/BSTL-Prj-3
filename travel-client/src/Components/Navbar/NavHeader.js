@@ -36,11 +36,11 @@ export default class NavHeader extends Component {
         <Link to={"/dashboard"}>
           <p className="profileIMG">Profile Image</p>
         </Link>
-        <button to={"/landing"}>
-          <p className="signout" onClick={this.props.logout}>
-            Sign out
-          </p>
+
+        <button className="signout" onClick={this.props.logout}>
+          Sign out
         </button>
+
         <button onClick={this.handleOpenMenu} />
         {maybeMenuOpen}
       </div>
