@@ -9,6 +9,7 @@ import {
 import axios from "axios";
 import YourItinInfo from "./YourItinInfo";
 import ActivityList from "./ActivityList";
+import TokenService from "../../services/TokenService";
 
 export default class YourItinPage extends Component {
 	constructor(props) {
@@ -29,7 +30,10 @@ export default class YourItinPage extends Component {
 	deleteActivity(id) {
 		axios({
 			url: `http://localhost:8080/api/noWander/itinerary/${id}/activity`,
-			method: "DELETE"
+			method: "DELETE",
+			headers: {
+				Authorization: `Bearer ${TokenService.read()}`
+			}
 		}).then(response => {
 			console.log(response);
 			this.getActivities(this.state.itinerary.id);
@@ -38,7 +42,10 @@ export default class YourItinPage extends Component {
 	getItinerary(id) {
 		axios({
 			url: `http://localhost:8080/api/nowander/itinerary/${id}`,
-			method: "GET"
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${TokenService.read()}`
+			}
 		}).then(response => {
 			console.log("in YourItinPage: ", response.data);
 			this.setState({
@@ -52,7 +59,10 @@ export default class YourItinPage extends Component {
 		axios({
 			url: `http://localhost:8080/api/nowander/itinerary/${id}`,
 			method: "POST",
-			data: newActivity
+			data: newActivity,
+			headers: {
+				Authorization: `Bearer ${TokenService.read()}`
+			}
 		}).then(res => {
 			console.log(res);
 			this.getActivities(id);
@@ -62,7 +72,10 @@ export default class YourItinPage extends Component {
 	getActivities(id) {
 		axios({
 			url: `http://localhost:8080/api/nowander/itinerary/${id}/activity`,
-			method: "GET"
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${TokenService.read()}`
+			}
 		}).then(response => {
 			console.log(response);
 			this.setState({
@@ -77,7 +90,10 @@ export default class YourItinPage extends Component {
 				activity.itinerary_id
 			}/${activity.activityId}`,
 			method: "PUT",
-			data: activity
+			data: activity,
+			headers: {
+				Authorization: `Bearer ${TokenService.read()}`
+			}
 		}).then(res => {
 			console.log(res);
 			this.getActivities(activity.itinerary_id);

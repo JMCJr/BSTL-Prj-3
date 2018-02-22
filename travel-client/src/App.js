@@ -105,7 +105,10 @@ class App extends Component {
     axios({
       url: "http://localhost:8080/api/nowander/dashboard",
       method: "POST",
-      data: newItinerary
+      data: newItinerary,
+      headers: {
+        Authorization: `Bearer ${TokenService.read()}`
+      }
     }).then(res => {
       this.queryItins();
     });
@@ -113,7 +116,13 @@ class App extends Component {
 
   queryItins() {
     console.log("***- queryItins");
-    axios("http://localhost:8080/api/nowander/dashboard").then(response => {
+    axios({
+      url: "http://localhost:8080/api/nowander/dashboard",
+      method: "get",
+      headers: {
+        Authorization: `Bearer ${TokenService.read()}`
+      }
+    }).then(response => {
       console.log("got a response. response.data:", response.data);
       const itins = response.data.itineraries;
 
@@ -130,7 +139,10 @@ class App extends Component {
     axios({
       url: `http://localhost:8080/api/noWander/itinerary/${data.id}`,
       method: "put",
-      data
+      data: data,
+      headers: {
+        Authorization: `Bearer ${TokenService.read()}`
+      }
     }).then(response => {
       console.log(
         "In App.editYourItinForm, received response from server. response.data:",
@@ -146,7 +158,10 @@ class App extends Component {
     axios({
       url: `http://localhost:8080/api/noWander/users/${data.id}`,
       method: "put",
-      data
+      data: data,
+      headers: {
+        Authorization: `Bearer ${TokenService.read()}`
+      }
     }).then(response => {
       console.log(
         "In App.editUserProfileForm, received response from server. response.data:",
