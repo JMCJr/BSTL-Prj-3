@@ -232,42 +232,6 @@ input {
 }
 /**/
 
-.navWhole {
-  background-color: lightgray;
-  height: 120px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-/*drop-down for the NAV bar*/
-.dropMenu{
-  width: 60px;
-}
-
-.profileIMG {
-  background-color: yellow;
-  height: 80px;
-  width: 80px;
-  flex-grow: 1;
-}
-
-.signout {
-  background-color: orange;
-  height: 80px;
-  width: 120px;
-  flex-grow: 1;
-}
-
-.emptyMenuItem {
-  height: 80px;
-  flex-grow: 8;
-}
-
-.dropWhole {
-  background-color: red;
-  /*flex-grow: 2;*/
-}
 
 .itineraryDrop {
   background-color: orange;
@@ -340,3 +304,51 @@ input {
     transform: rotate(360deg);
   }
 }
+
+/*----------------------------------------------------------------------*/
+/*Leon's Nav adjustments 2/22*/
+
+
+
+/*drop-down for the NAV bar*/
+.dropMenu{
+  width: 60px;
+}
+
+.profilePic {
+  height: 80px;
+  width: 70px;
+  flex: 1;
+
+  /*float: right;*/
+}
+
+.signoutButton {
+  height: 80px;
+  width: auto;
+  flex: 1;
+}
+
+.emptyMenuItem {
+  height: 80px;
+  /*flex-grow: 8;*/
+}
+
+.itineraryDropdown {
+  background-color: red;
+}
+
+.navEntire{
+  display:flex;
+  background-color:lightgray;
+  justify-content: center;
+
+}
+  
+.box{
+  width: 99%;
+  box-shadow: 10px 10px 5px #888888;
+  padding: 10px;
+  padding-bottom: 20px; 
+}
+

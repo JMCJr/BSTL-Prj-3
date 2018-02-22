@@ -26,24 +26,35 @@ export default class NavHeader extends Component {
     let maybeMenuOpen = null;
     if (this.state.menuIsOpen) {
       maybeMenuOpen = (
-        <div className="dropWhole">
+        <div className="itineraryDropdown">
           <DropdownButt />
         </div>
       );
     }
     return (
-      <div className="navWhole">
-        <Link to={"/dashboard"}>
-          <p className="profileIMG">Profile Image</p>
-        </Link>
-        <button to={"/landing"}>
-          <p className="signout" onClick={this.props.logout}>
-            Sign out
-          </p>
-        </button>
-        <button className="dropMenu" type="submit" name="show itinerary" onClick={this.handleOpenMenu} />
-        {maybeMenuOpen}
-      </div>
+      <div className="navEntire">
+          
+          <div className="signoutButton" >
+            <button  to={"/landing"}>
+              <p onClick={this.props.logout}>
+                Sign out
+              </p>
+            </button>
+           </div>
+          <div className="dropMenu">
+            <button type="submit" name="show itinerary" onClick={this.handleOpenMenu} >Show my itinerary </button>
+            {maybeMenuOpen}
+          </div> 
+
+          <div className="profilePic">
+            <Link to={"/dashboard"}>
+              <p>Profile Image</p>
+            </Link>
+          </div>
+
+          
+        </div>
+      
     );
   }
 }
