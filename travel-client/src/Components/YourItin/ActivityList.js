@@ -17,7 +17,6 @@ export default class ActivityList extends Component {
     this.renderActivities = this.renderActivities.bind(this);
     this.modalHandler = this.modalHandler.bind(this);
     this.state = {
-      allActivities: [],
       modalOpen: false
     };
   }
@@ -30,6 +29,7 @@ export default class ActivityList extends Component {
         activity={activity}
         index={index}
         key={index}
+        editActivity={this.props.editActivity}
       />
     );
   }

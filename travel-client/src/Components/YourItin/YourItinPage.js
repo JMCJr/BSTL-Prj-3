@@ -21,6 +21,7 @@ export default class YourItinPage extends Component {
 		this.getItinerary = this.getItinerary.bind(this);
 		this.getActivities = this.getActivities.bind(this);
 		this.newActivityPost = this.newActivityPost.bind(this);
+		this.editActivity = this.editActivity.bind(this);
 	}
 	getItinerary(id) {
 		axios({
@@ -61,6 +62,18 @@ export default class YourItinPage extends Component {
 			});
 		});
 	}
+	editActivity(activity) {
+		axios({
+			url: `http://localhost:8080/api/nowander/itinerary/${
+				activity.itinerary_id
+			}/${activity.activityId}`,
+			method: "PUT",
+			data: activity
+		}).then(res => {
+			console.log(res);
+			this.getActivities(activity.itinerary_id);
+		});
+	}
 
 	componentWillReceiveProps(nextProps) {
 		this.getItinerary(nextProps.match.params.id);
@@ -79,6 +92,7 @@ export default class YourItinPage extends Component {
 					getActivities={this.getActivities}
 					allActivities={this.state.allActivities}
 					newActivityPost={this.newActivityPost}
+					editActivity={this.editActivity}
 				/>
 			</div>
 		);

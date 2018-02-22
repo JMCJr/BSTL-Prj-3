@@ -7,12 +7,18 @@ import {
   Redirect
 } from "react-router-dom";
 import axios from "axios";
+import Modal from "react-responsive-modal";
+import EditYourActivityForm from "./EditYourActivityForm";
 
 export default class Activity extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      modalOpen: false
+    };
+    this.modalHandler = this.modalHandler.bind(this);
+
     this.deleteActivity = this.deleteActivity.bind(this);
-    // this.deleteHandler = this.deleteHandler.bind(this);
   }
   deleteActivity(e) {
     e.preventDefault();
@@ -26,14 +32,16 @@ export default class Activity extends Component {
       this.props.getActivities(this.props.itineraryID);
     });
   }
-
-  // deleteHandler(e) {
-  //   e.preventDefault();
-  //   this.deleteActivity(this.props.itineraryID);
-  // }
+  modalHandler() {
+    this.setState(prevState => {
+      prevState.modalOpen = !prevState.modalOpen;
+      return prevState;
+    });
+  }
 
   render() {
     const activity = this.props.activity;
+    const { modalOpen } = this.state;
     return (
       <div>
         <div className="Activity-box">
@@ -51,7 +59,23 @@ export default class Activity extends Component {
             <div className="Activity-squares">Cost:</div>
             <div className="Activity-squares">{activity.price}</div>
           </div>
-          <button onClick={this.deleteActivity}>Delete</button>
+          <div>
+            <button onClick={this.modalHandler}>Edit</button>
+            <button onClick={this.deleteActivity}>Delete</button>
+          </div>
+          <Modal
+            open={modalOpen}
+            onClose={this.modalHandler}
+            closeIconSize={0}
+            little
+          >
+            <EditYourActivityForm
+              itineraryId={this.props.itineraryID}
+              modalHandler={this.modalHandler}
+              activity={activity}
+              editActivity={this.props.editActivity}
+            />
+          </Modal>
         </div>
       </div>
     );

@@ -170,14 +170,14 @@ noWander.deleteActivity = (req, res, next) => {
 
 noWander.updateActivity = (req, res, next) => {
   console.log("req.body:", req.body);
-  let { name, description, price, votes, itinerary_id } = req.body;
+  let { name, description, price, votes, itinerary_id, activityId } = req.body;
   db
     .one(
-      "UPDATE activity SET name=$1, description=$2, price=$3, votes=$4, itinerary_id=$5 WHERE id=$6 RETURNING id;",
-      [name, description, price, votes, itinerary_id, req.params.id]
+      "UPDATE activity SET name=$1, description=$2, price=$3, votes=$4, itinerary_id=$5 WHERE id=$6 RETURNING *;",
+      [name, description, price, votes, itinerary_id, activityId]
     )
-    .then(activityId => {
-      res.locals.activityId = activityId;
+    .then(data => {
+      res.locals.data = data;
       next();
     })
     .catch(err => {
@@ -185,9 +185,6 @@ noWander.updateActivity = (req, res, next) => {
       next(err);
     });
 };
-
-
-
 
 noWander.updateItinerary = (req, res, next) => {
   console.log("req.body:", req.body);
@@ -207,8 +204,6 @@ noWander.updateItinerary = (req, res, next) => {
     });
 };
 
-
-
 noWander.updateUser = (req, res, next) => {
   console.log("req.body:", req.body);
   let { fname, lname, email, username, password_digest } = req.body;
@@ -227,40 +222,4 @@ noWander.updateUser = (req, res, next) => {
     });
 };
 
-
-
-
 module.exports = noWander;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
