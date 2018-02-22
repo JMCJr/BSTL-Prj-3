@@ -21,7 +21,7 @@ class App extends Component {
     this.queryItins = this.queryItins.bind(this);
     this.editYourItinForm = this.editYourItinForm.bind(this);
     this.editUserProfileForm = this.editUserProfileForm.bind(this);
-    this.editYourActivityForm = this.editYourActivityForm.bind(this);
+    this.newItinerary = this.newItinerary.bind(this);
   }
 
   login(data) {
@@ -44,6 +44,15 @@ class App extends Component {
         TokenService.save(resp.data.token);
       })
       .catch(err => console.log(`err: ${err}`));
+  }
+  newItinerary(newItinerary) {
+    axios({
+      url: "http://localhost:8080/api/nowander/dashboard",
+      method: "POST",
+      data: newItinerary
+    }).then(res => {
+      this.queryItins();
+    });
   }
 
   logout(e) {
@@ -94,22 +103,6 @@ class App extends Component {
     });
   }
 
-  editYourActivityForm(data) {
-    axios({
-      url: `http://localhost:8080/api/noWander/activity/${data.id}`,
-      method: "put",
-      data
-    }).then(response => {
-      console.log(
-        "In App.editYourActivityForm, received response from server. response.data:",
-        response.data
-      );
-      this.setState(previousState => {
-        return { activity: previousState.activity.concat(response.data) };
-      });
-    });
-  }
-
   // _______________________
   componentDidMount() {
     this.queryItins();
@@ -121,6 +114,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Landing
+            newItinerary={this.newItinerary}
             register={this.register}
             login={this.login}
             logout={this.logout}

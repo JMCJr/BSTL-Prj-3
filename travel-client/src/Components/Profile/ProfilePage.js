@@ -14,9 +14,6 @@ import YourItinPage from "../YourItin/YourItinPage";
 export default class ProfilePage extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			id: ""
-		};
 	}
 
 	render() {
@@ -32,10 +29,15 @@ export default class ProfilePage extends Component {
 							path="/dashboard/itinerary/:id"
 							component={YourItinPage}
 						/>
+
 						<Route
-							exact
 							path="/dashboard/newitinerary"
-							component={NewItin}
+							render={props => (
+								<NewItin
+									{...props}
+									newItinerary={this.props.newItinerary}
+								/>
+							)}
 						/>
 						<Route exact path="/dashboard" component={ItinList} />
 					</Switch>

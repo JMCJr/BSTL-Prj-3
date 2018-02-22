@@ -18,6 +18,7 @@ export default class NewItin extends Component {
 			date_returning: "",
 			budget: ""
 		};
+		this.submitItinerary = this.submitItinerary.bind(this);
 	}
 
 	changeItinerary(ev) {
@@ -25,77 +26,79 @@ export default class NewItin extends Component {
 			[ev.target.name]: ev.target.value
 		});
 	}
-	createCall(newItinerary) {
-		axios({
-			url: "http://localhost:8080/api/nowander/dashboard",
-			method: "POST",
-			data: newItinerary
-		}).then(res => {
-			console.log(res);
-		});
-	}
+
 	submitItinerary(ev) {
 		ev.preventDefault();
 		console.log(ev);
-		this.createCall(this.state);
+		this.props.newItinerary(this.state);
 	}
 
 	render() {
 		return (
-			<div>
-				<h1>CREATE NEW</h1>
+			<div className="Your-itinerary-card">
+				{" "}
 				<form onSubmit={this.submitItinerary.bind(this)}>
-					<label>
-						<br />
-						<input
-							type="text"
-							name="name"
-							value={this.state.name}
-							placeholder="name"
-							onChange={this.changeItinerary.bind(this)}
-						/>
-					</label>
-					<label>
-						<br />
-						<input
-							type="text"
-							name="city"
-							value={this.state.city}
-							placeholder="city"
-							onChange={this.changeItinerary.bind(this)}
-						/>
-					</label>
-					<label>
-						<br />
-						<input
-							type="text"
-							name="date_departing"
-							value={this.state.date_departing}
-							placeholder="departing"
-							onChange={this.changeItinerary.bind(this)}
-						/>
-					</label>
-					<label>
-						<br />
-						<input
-							type="text"
-							name="date_returning"
-							value={this.state.date_returning}
-							placeholder="returning"
-							onChange={this.changeItinerary.bind(this)}
-						/>
-					</label>
-					<label>
-						<br />
-						<input
-							type="text"
-							name="budget"
-							value={this.state.budget}
-							placeholder="budget"
-							onChange={this.changeItinerary.bind(this)}
-						/>
-					</label>
-					<input type="submit" />
+					<span className="New-itinerary-heading">
+						<h2>Create New Itinerary</h2>
+					</span>
+					<div className="Your-itinerary-card-box">
+						<div className="New-itin-container">
+							<div className="Flex-vertical Grid-col-2">
+								<input
+									className="New-itinerary-input"
+									type="text"
+									name="name"
+									value={this.state.name}
+									placeholder="Trip Name"
+									onChange={this.changeItinerary.bind(this)}
+								/>
+
+								<div className="New-dates">
+									<input
+										className="New-itinerary-input "
+										type="text"
+										name="date_departing"
+										value={this.state.date_departing}
+										placeholder="Departing"
+										onChange={this.changeItinerary.bind(
+											this
+										)}
+									/>
+									<div />
+									<input
+										className="New-itinerary-input "
+										type="text"
+										name="date_returning"
+										value={this.state.date_returning}
+										placeholder="Returning"
+										onChange={this.changeItinerary.bind(
+											this
+										)}
+									/>
+								</div>
+							</div>
+							<div className="Flex-vertical Grid-col-4">
+								<input
+									className="New-itinerary-input"
+									type="text"
+									name="city"
+									value={this.state.city}
+									placeholder="Destination"
+									onChange={this.changeItinerary.bind(this)}
+								/>
+
+								<input
+									className="New-itinerary-input"
+									type="text"
+									name="budget"
+									value={this.state.budget}
+									placeholder="Budget"
+									onChange={this.changeItinerary.bind(this)}
+								/>
+							</div>
+						</div>
+					</div>
+					<input className="New-itinerary-submit" type="submit" />
 				</form>
 			</div>
 		);

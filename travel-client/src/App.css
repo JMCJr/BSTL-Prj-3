@@ -155,6 +155,53 @@ textarea {
   text-align: left;
   color: white;
 }
+.New-itinerary-heading {
+  color: white;
+}
+.Grid-col-2 {
+  grid-column-start: 2;
+}
+.Grid-col-4 {
+  grid-column-start: 4;
+}
+input {
+  padding: 5px;
+}
+.New-itinerary-input {
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid grey;
+  margin-bottom: 20px;
+}
+.New-itin-container {
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 10% 35% 10% 35% 10%;
+}
+.New-dates {
+  display: grid;
+  grid-template-columns: 45% 10% 45%;
+}
+.New-activity-submit {
+  margin-top: 10px;
+  background: green;
+  width: 50%;
+  height: 30px;
+  color: white;
+  margin-left: 25%;
+  border-radius: 5px;
+  border: 0px;
+}
+.New-itinerary-submit {
+  margin-top: 40px;
+  background: green;
+  width: 30%;
+  height: 30px;
+  color: white;
+  box-shadow: 3px 3px 5px 1px #333;
+  border-radius: 5px;
+  border: 0px;
+}
 /**/
 
 .navWhole {
