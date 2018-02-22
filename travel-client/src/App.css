@@ -266,7 +266,7 @@ input {
 
 .dropWhole {
   background-color: red;
-  /*flex-grow: 2;*/
+  z-index: 4;
 }
 
 .itineraryDrop {
