@@ -22,6 +22,18 @@ export default class YourItinPage extends Component {
 		this.getActivities = this.getActivities.bind(this);
 		this.newActivityPost = this.newActivityPost.bind(this);
 		this.editActivity = this.editActivity.bind(this);
+		this.deleteActivity = this.deleteActivity.bind(this);
+	}
+	// this.state.itinerary
+	//AXIOS CALLS BEGIN
+	deleteActivity(id) {
+		axios({
+			url: `http://localhost:8080/api/noWander/itinerary/${id}/activity`,
+			method: "DELETE"
+		}).then(response => {
+			console.log(response);
+			this.getActivities(this.state.itinerary.id);
+		});
 	}
 	getItinerary(id) {
 		axios({
@@ -46,10 +58,7 @@ export default class YourItinPage extends Component {
 			this.getActivities(id);
 		});
 	}
-	componentDidMount() {
-		console.log("instance");
-		this.getItinerary(this.props.match.params.id);
-	}
+
 	getActivities(id) {
 		axios({
 			url: `http://localhost:8080/api/nowander/itinerary/${id}/activity`,
@@ -75,6 +84,13 @@ export default class YourItinPage extends Component {
 		});
 	}
 
+	//AXIOS CALLS END
+
+	//
+	componentDidMount() {
+		console.log("instance");
+		this.getItinerary(this.props.match.params.id);
+	}
 	componentWillReceiveProps(nextProps) {
 		this.getItinerary(nextProps.match.params.id);
 		console.log("heyyy", nextProps);
@@ -88,6 +104,7 @@ export default class YourItinPage extends Component {
 			<div>
 				<YourItinInfo itinerary={this.state.itinerary} />
 				<ActivityList
+					deleteActivity={this.deleteActivity}
 					itinerary={this.state.itinerary}
 					getActivities={this.getActivities}
 					allActivities={this.state.allActivities}

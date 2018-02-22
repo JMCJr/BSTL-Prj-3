@@ -24,6 +24,7 @@ export default class ActivityList extends Component {
   renderActivities(activity, index) {
     return (
       <Activity
+        deleteActivity={this.props.deleteActivity}
         getActivities={this.props.getActivities}
         itineraryID={this.props.itinerary.id}
         activity={activity}
