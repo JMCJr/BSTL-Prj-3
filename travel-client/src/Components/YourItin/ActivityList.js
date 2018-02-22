@@ -14,6 +14,7 @@ export default class ActivityList extends Component {
     super(props);
     this.state = {
       modalOpen: false
+    }
     this.modalHandler = this.modalHandler.bind(this);
     this.renderActivities = this.renderActivities.bind(this);
     };
