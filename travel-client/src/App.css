@@ -5,7 +5,7 @@
 
 .Backdrop {
   background: #88c0e8;
-  height: 1600px;
+  height: 100vh;
   width: 100vw;
 }
 .Hidden {
@@ -66,6 +66,63 @@
 .Itin-value-styling {
   font-size: 20px;
 }
+.Activity-list {
+  height: 200px;
+  width: 700px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.Activity-container {
+  background: pink;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #88c0e8;
+  padding: 5px;
+}
+.Activity {
+  position: relative;
+  height: 250px;
+}
+.Category-spacing {
+  margin: 0 5px;
+  padding: 5px;
+}
+.Activity-squares {
+  text-align: center;
+}
+.Activity-box {
+  display: grid;
+  grid-template-columns: 12% 25% 25% 25% 13%;
+  border: 1px solid white;
+}
+textarea {
+  resize: none;
+}
+.New-activity {
+  text-align: center;
+  width: 500px;
+}
+.New-activity-input {
+  width: 70%;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+.New-activity-submit {
+  margin-top: 10px;
+  background: green;
+  width: 50%;
+  height: 30px;
+  color: white;
+  margin-left: 25%;
+}
+.Activity-holder {
+  overflow: scroll;
+  height: 200px;
+}
+.Sub-sub-headings {
+  text-align: left;
+}
 .Your-itinerary-card {
   height: 200px;
   width: 700px;
@@ -73,10 +130,10 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
 .Your-itin {
   position: relative;
   height: 250px;
-  background: red;
 }
 .Your-itinerary-card-box {
   background: pink;

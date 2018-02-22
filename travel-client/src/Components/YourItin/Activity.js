@@ -35,11 +35,24 @@ export default class Activity extends Component {
   render() {
     const activity = this.props.activity;
     return (
-      <div className="Activity-card">
-        <p>Name: {activity.name}</p>
-        <p>Description: {activity.description}</p>
-        <p>Price: {activity.price}</p>
-        <button onClick={this.deleteActivity}>Delete</button>
+      <div>
+        <div className="Activity-box">
+          <div>voting thing</div>
+          <div className="Flex-vertical Category-spacing">
+            <div className="Activity-squares">Activity: </div>
+            <div className="Activity-squares">{activity.name}</div>
+          </div>
+
+          <div className="Flex-vertical Category-spacing">
+            <div className="Activity-squares">Description:</div>
+            <div className="Activity-squares">{activity.description}</div>
+          </div>
+          <div className="Flex-vertical Category-spacing">
+            <div className="Activity-squares">Cost:</div>
+            <div className="Activity-squares">{activity.price}</div>
+          </div>
+          <button onClick={this.deleteHandler}>Delete</button>
+        </div>
       </div>
     );
   }
