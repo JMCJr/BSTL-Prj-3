@@ -14,7 +14,6 @@ router.post("/", User.create, (req, res) => {
 // if the user didn't get created thrown an error
 // else include the user and token in the response
 router.post("/login", User.login, (req, res) => {
-  cons;
   if (!res.locals.user) {
     res.status(401).json({ err: "Login Failed" });
   } else {
