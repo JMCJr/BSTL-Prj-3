@@ -51,7 +51,7 @@ export default class Activity extends Component {
             <div className="Activity-squares">Cost:</div>
             <div className="Activity-squares">{activity.price}</div>
           </div>
-          <button onClick={this.deleteHandler}>Delete</button>
+          <button onClick={this.deleteActivity}>Delete</button>
         </div>
       </div>
     );

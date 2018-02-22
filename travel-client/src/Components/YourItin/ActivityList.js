@@ -8,22 +8,24 @@ import {
 } from "react-router-dom";
 import axios from "axios";
 import Activity from "./Activity";
+import NewActivity from "./NewActivity";
+import Modal from "react-responsive-modal";
 
 export default class ActivityList extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      modalOpen: false
-    }
-    this.modalHandler = this.modalHandler.bind(this);
     this.renderActivities = this.renderActivities.bind(this);
+    this.modalHandler = this.modalHandler.bind(this);
+    this.state = {
+      allActivities: [],
+      modalOpen: false
     };
   }
 
   renderActivities(activity, index) {
     return (
       <Activity
-        getActivities={this.getActivities}
+        getActivities={this.props.getActivities}
         itineraryID={this.props.itinerary.id}
         activity={activity}
         index={index}
@@ -32,21 +34,15 @@ export default class ActivityList extends Component {
     );
   }
 
-  getActivities(id) {
-    axios({
-      url: `http://localhost:8080/api/nowander/itinerary/${id}/activity`,
-      method: "GET"
-    }).then(response => {
-      console.log(response);
-      this.setState({
-        allActivities: response.data.activities,
-        dataLoaded: true
-      });
+  modalHandler() {
+    this.setState(prevState => {
+      prevState.modalOpen = !prevState.modalOpen;
+      return prevState;
     });
   }
 
   componentDidMount() {
-    this.getActivities(this.props.itinerary.id);
+    this.props.getActivities(this.props.itinerary.id);
   }
   render() {
     const activities = this.props.allActivities.map(this.renderActivities);
