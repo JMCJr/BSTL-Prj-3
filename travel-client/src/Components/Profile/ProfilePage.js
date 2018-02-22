@@ -24,7 +24,7 @@ export default class ProfilePage extends Component {
 			<Router>
 				<div>
 					<NavHeader logout={this.props.logout} />
-					<Link to="/newitinerary">
+					<Link to="/dashboard/newitinerary">
 						<div>CREATE NEW ITINERARY</div>
 					</Link>
 					<Switch>
@@ -32,7 +32,11 @@ export default class ProfilePage extends Component {
 							path="/dashboard/itinerary/:id"
 							component={YourItinPage}
 						/>
-						<Route exact path="/newitinerary" component={NewItin} />
+						<Route
+							exact
+							path="/dashboard/newitinerary"
+							component={NewItin}
+						/>
 						<Route exact path="/dashboard" component={ItinList} />
 					</Switch>
 				</div>
