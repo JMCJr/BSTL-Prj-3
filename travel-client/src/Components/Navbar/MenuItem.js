@@ -39,7 +39,7 @@ export default class MenuItem extends Component {
     const itinerary = this.props.itinerary;
     return (
       <div>
-        <Link to={`/itinerary/${itinerary.id}`}>
+        <Link to={`/dashboard/itinerary/${itinerary.id}`}>
           <p className="menuDropItem">Name: {itinerary.name}</p>
         </Link>
       </div>

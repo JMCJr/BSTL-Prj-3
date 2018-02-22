@@ -109,6 +109,7 @@ export default class YourItinPage extends Component {
 	}
 	componentWillReceiveProps(nextProps) {
 		this.getItinerary(nextProps.match.params.id);
+		this.getActivities(nextProps.match.params.id);
 		console.log("heyyy", nextProps);
 	}
 
