@@ -7,8 +7,7 @@ import ProfilePage from "./Components/Profile/ProfilePage";
 import TokenService from "./services/TokenService";
 import EditYourItinForm from "./Components/YourItin/EditYourItinForm";
 import EditUserProfileForm from "./Components/YourItin/EditUserProfileForm";
-import EditYourActivityForm from "./Components/YourItin/EditYourActivityForm"; 
-
+import EditYourActivityForm from "./Components/YourItin/EditYourActivityForm";
 
 class App extends Component {
   constructor(props) {
@@ -17,8 +16,7 @@ class App extends Component {
       login: false,
       itineraries: [],
       activities: [],
-        users: []
-
+      users: []
     };
     this.queryItins = this.queryItins.bind(this);
     this.editYourItinForm = this.editYourItinForm.bind(this);
@@ -64,60 +62,58 @@ class App extends Component {
 
   // _______________Leon 2/21
 
-editYourItinForm(data) {
+  editYourItinForm(data) {
     axios({
       url: `http://localhost:8080/api/noWander/itinerary/${data.id}`,
-      method: "put", 
+      method: "put",
       data
     }).then(response => {
       console.log(
         "In App.editYourItinForm, received response from server. response.data:",
         response.data
       );
-      this.setState(previousState => {return { itinerary: previousState.itinerary.concat(response.data) }});
-    })
+      this.setState(previousState => {
+        return { itinerary: previousState.itinerary.concat(response.data) };
+      });
+    });
   }
-
-
 
   editUserProfileForm(data) {
     axios({
       url: `http://localhost:8080/api/noWander/users/${data.id}`,
-      method: "put", 
+      method: "put",
       data
     }).then(response => {
       console.log(
         "In App.editUserProfileForm, received response from server. response.data:",
         response.data
       );
-      this.setState(previousState => {return { users: previousState.users.concat(response.data) }});
-    })
+      this.setState(previousState => {
+        return { users: previousState.users.concat(response.data) };
+      });
+    });
   }
 
-
-editYourActivityForm(data) {
+  editYourActivityForm(data) {
     axios({
       url: `http://localhost:8080/api/noWander/activity/${data.id}`,
-      method: "put", 
+      method: "put",
       data
     }).then(response => {
       console.log(
         "In App.editYourActivityForm, received response from server. response.data:",
         response.data
       );
-      this.setState(previousState => {return { activity: previousState.activity.concat(response.data) }});
-    })
+      this.setState(previousState => {
+        return { activity: previousState.activity.concat(response.data) };
+      });
+    });
   }
 
-
-
-
-
-
-// _______________________
+  // _______________________
   componentDidMount() {
     this.queryItins();
-
+    console.log("The token Serv: ", TokenService.read());
   }
 
   render() {
