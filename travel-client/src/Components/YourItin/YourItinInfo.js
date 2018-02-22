@@ -24,16 +24,16 @@ export default class YourItinInfo extends Component {
           <div className="Flex-horizontal Flex-space-around">
             <div className="Flex-vertical  Your-itin-outter">
               <div className="Your-itinerary-card-box Your-itin-top">
-                <div className="Itin-box-titles">To:</div>
+                <div className="Sub-sub-headings">To:</div>
                 <div>{itinerary.city}</div>
               </div>
               <div className="Your-itinerary-card-box">activity count</div>
             </div>
             <div className="Flex-vertical Your-itin-inner">
               <div className="Your-itinerary-card-box Your-itin-top">
-                <div className="Itin-box-titles">Dates:</div>
+                <div className="Sub-sub-headings">Dates:</div>
                 <div>{itinerary.date_departing}</div>
-                <div className="Itin-box-titles">To: </div>
+                <div className="Sub-sub-headings">To: </div>
                 <div>{itinerary.date_returning}</div>
               </div>
               <div className="Your-itinerary-card-box">

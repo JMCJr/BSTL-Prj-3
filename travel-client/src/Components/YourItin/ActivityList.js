@@ -15,7 +15,7 @@ export default class ActivityList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      modalOpen: false
+      modalOpen: true
     };
     this.renderActivities = this.renderActivities.bind(this);
     this.modalHandler = this.modalHandler.bind(this);
@@ -46,11 +46,10 @@ export default class ActivityList extends Component {
     return (
       <div>
         <div>
-          <button onClick={this.modalHandler}>Open modal</button>
           <Modal
             open={modalOpen}
             onClose={this.modalHandler}
-            closeIconSize={8}
+            closeIconSize={0}
             little
           >
             <NewActivity
@@ -60,7 +59,22 @@ export default class ActivityList extends Component {
             />
           </Modal>
         </div>
-        <div>{activities}</div>
+        <div className="Activity">
+          <div className="Your-itinerary-card">
+            <div className="Flex-horizontal">
+              <span className="Your-itin-heading">
+                <h2>Activity List</h2>
+              </span>
+              <span>
+                <button onClick={this.modalHandler}>Open modal</button>
+              </span>
+            </div>
+            <div className="Activity-container Flex-vertical">
+              <div className="Sub-sub-headings">Vote</div>
+              <div className="Activity-holder">{activities}</div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
