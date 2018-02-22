@@ -107,6 +107,7 @@ class App extends Component {
   componentDidMount() {
     this.queryItins();
     console.log("The token Serv: ", TokenService.read());
+    console.log("Got login? :", this.state.login);
   }
 
   render() {

@@ -45,7 +45,7 @@
 }
 .Flex-vertical {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 .Flex-horizontal {
   display: flex;
@@ -76,7 +76,7 @@
 .Activity-container {
   background: pink;
   margin-bottom: 20px;
-  border-radius: 5px;
+  border-radius: 20px;
   border: 1px solid #88c0e8;
   padding: 5px;
 }
@@ -84,6 +84,25 @@
   position: relative;
   height: 250px;
 }
+
+.Active-Headbar {
+  display: flex;
+  justify-content: ;
+  justify-content: space-between;
+}
+
+.Vote-Head {
+}
+
+.Act-Head {
+}
+
+.Desc-Head {
+}
+
+.Cost-Head {
+}
+
 .Category-spacing {
   margin: 0 5px;
   padding: 5px;
@@ -94,7 +113,7 @@
 .Activity-box {
   display: grid;
   grid-template-columns: 12% 25% 25% 25% 13%;
-  border: 1px solid white;
+  border-bottom: 1px solid white;
 }
 textarea {
   resize: none;
@@ -120,8 +139,16 @@ textarea {
   overflow: scroll;
   height: 200px;
 }
+
+.Act-butts {
+  color: red;
+  border-radius: 65px;
+  height: 20px;
+}
+
 .Sub-sub-headings {
   text-align: left;
+  padding-left: 25px;
 }
 .Your-itinerary-card {
   height: 200px;
@@ -249,10 +276,6 @@ input {
   border-bottom: 1px solid white;
 }
 
-.App {
-  text-align: center;
-}
-
 .landingContainer {
   display: flex;
 }
@@ -269,10 +292,14 @@ input {
   /*padding-right: 200px;*/
 }
 
-.signupTitle {
-}
+.createNewItinButt {
+  margin: 15px;
+  padding: 30px;
+  font-size: 20px;
+  height: 20px;
 
-.signupForm {
+  border-radius: 20px;
+  background-color: lightgreen;
 }
 
 /*.profilePic{

@@ -70,11 +70,16 @@ export default class ActivityList extends Component {
                 <h2>Activity List</h2>
               </span>
               <span>
-                <button onClick={this.modalHandler}>Open modal</button>
+                <button onClick={this.modalHandler}>Add Activity</button>
               </span>
             </div>
-            <div className="Activity-container Flex-vertical">
-              <div className="Sub-sub-headings">Vote</div>
+            <div className="Activity-container">
+              <div className="Flex-horizontal Active-Headbar">
+                <div className="Sub-sub-headings Vote-Head">Vote</div>
+                <div className="Sub-sub-headings Act-Head">Activity</div>
+                <div className="Sub-sub-headings Desc-Head">Description</div>
+                <div className="Sub-sub-headings Cost-Head">Cost</div>
+              </div>
               <div className="Activity-holder">{activities}</div>
             </div>
           </div>

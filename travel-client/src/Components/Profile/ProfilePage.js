@@ -22,21 +22,15 @@ export default class ProfilePage extends Component {
 				<div>
 					<NavHeader logout={this.props.logout} />
 					<Link to="/dashboard/newitinerary">
-						<div>CREATE NEW ITINERARY</div>
+						<button className="createNewItinButt">Make A New Itinerary</button>
 					</Link>
 					<Switch>
-						<Route
-							path="/dashboard/itinerary/:id"
-							component={YourItinPage}
-						/>
+						<Route path="/dashboard/itinerary/:id" component={YourItinPage} />
 
 						<Route
 							path="/dashboard/newitinerary"
 							render={props => (
-								<NewItin
-									{...props}
-									newItinerary={this.props.newItinerary}
-								/>
+								<NewItin {...props} newItinerary={this.props.newItinerary} />
 							)}
 						/>
 						<Route exact path="/dashboard" component={ItinList} />

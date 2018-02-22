@@ -45,23 +45,28 @@ export default class Activity extends Component {
     return (
       <div>
         <div className="Activity-box">
-          <div>voting thing</div>
+          <div>
+            <form>
+              <input type="radio" name="vote" />
+            </form>
+          </div>
           <div className="Flex-vertical Category-spacing">
-            <div className="Activity-squares">Activity: </div>
             <div className="Activity-squares">{activity.name}</div>
           </div>
 
           <div className="Flex-vertical Category-spacing">
-            <div className="Activity-squares">Description:</div>
             <div className="Activity-squares">{activity.description}</div>
           </div>
           <div className="Flex-vertical Category-spacing">
-            <div className="Activity-squares">Cost:</div>
             <div className="Activity-squares">{activity.price}</div>
           </div>
           <div>
-            <button onClick={this.modalHandler}>Edit</button>
-            <button onClick={this.deleteActivity}>Delete</button>
+            <button className="Act-butts" onClick={this.modalHandler}>
+              Edit
+            </button>
+            <button className="Act-butts" onClick={this.deleteActivity}>
+              Delete
+            </button>
           </div>
           <Modal
             open={modalOpen}
