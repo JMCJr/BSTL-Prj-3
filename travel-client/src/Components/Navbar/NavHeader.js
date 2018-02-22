@@ -41,7 +41,7 @@ export default class NavHeader extends Component {
             Sign out
           </p>
         </button>
-        <button onClick={this.handleOpenMenu} />
+        <button className="dropMenu" type="submit" name="show itinerary" onClick={this.handleOpenMenu} />
         {maybeMenuOpen}
       </div>
     );
