@@ -168,7 +168,7 @@ noWander.deleteActivity = (req, res, next) => {
 
 // update attempts 2/21
 
-noWander.update = (req, res, next) => {
+noWander.updateActivity = (req, res, next) => {
   console.log("req.body:", req.body);
   let { name, description, price, votes, itinerary_id } = req.body;
   db
@@ -189,7 +189,7 @@ noWander.update = (req, res, next) => {
 
 
 
-noWander.update = (req, res, next) => {
+noWander.updateItinerary = (req, res, next) => {
   console.log("req.body:", req.body);
   let { name, city, date_departing, date_returning, budget } = req.body;
   db
@@ -209,7 +209,7 @@ noWander.update = (req, res, next) => {
 
 
 
-noWander.update = (req, res, next) => {
+noWander.updateUser = (req, res, next) => {
   console.log("req.body:", req.body);
   let { fname, lname, email, username, password_digest } = req.body;
   db
