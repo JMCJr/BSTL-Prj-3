@@ -24,7 +24,10 @@ app.use("/api/noWander", nowanderRoutes);
 app.use("/users", userRouter);
 
 app.get("/isLoggedIn", authService.isLoggedIn, (req, res) => {
-	res.json({ isLoggedIn: res.locals.isLoggedIn });
+	res.json({
+		isLoggedIn: res.locals.isLoggedIn,
+		user: res.locals.user
+	});
 });
 //
 const PORT = process.env.PORT || 8080;

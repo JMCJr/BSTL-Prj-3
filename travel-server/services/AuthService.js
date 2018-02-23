@@ -28,7 +28,9 @@ function restrict() {
 function isLoggedIn(req, res, next) {
   TokenService.verify(req.authToken)
     .then(data => {
+      console.log("IS isLoggedIn", data);
       res.locals.isLoggedIn = "YES";
+      res.locals.user = data;
       next();
     })
     .catch(err => {

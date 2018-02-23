@@ -111,16 +111,15 @@ class App extends Component {
         Authorization: `Bearer ${TokenService.read()}`
       }
     }).then(res => {
-      this.queryItins(1);
+      this.queryItins(this.state.user.id);
     });
   }
 
   queryItins(id) {
     console.log("queryItins", id);
     axios({
-      url: "http://localhost:8080/api/nowander/dashboard",
+      url: `http://localhost:8080/api/nowander/dashboard/user/${id}`,
       method: "get",
-      // data: id,
       headers: {
         Authorization: `Bearer ${TokenService.read()}`
       }
@@ -183,11 +182,12 @@ class App extends Component {
       }
     })
       .then(resp => {
+        console.log("checkLogin", resp.data);
         this.setState({
-          isLoggedIn: resp.data.isLoggedIn
+          isLoggedIn: resp.data.isLoggedIn,
+          user: resp.data.user
         });
-        // this.queryItins();
-        console.log("post-login", this.state);
+        this.queryItins(resp.data.user.id);
       })
       .catch(err => {
         console.log(err);
@@ -196,7 +196,6 @@ class App extends Component {
 
   // _______________________
   componentDidMount() {
-    // console.log("The token Serv: ", TokenService.read());
     this.checkLogin();
     // this.queryItins(this.state.userID);
     console.log("APPjs mount", this.state.userID);
@@ -211,7 +210,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <div className="App Backdrop">
-              <NavHeader logout={this.logout} />
+              <NavHeader logout={this.logout} user={this.state.user} />
               <Link to="/dashboard/newitinerary">
                 <div className="createNewItinButt">CREATE NEW ITINERARY</div>
               </Link>
@@ -231,6 +230,7 @@ class App extends Component {
                   render={props => (
                     <ProfilePage
                       {...props}
+                      user={this.state.user}
                       queryItins={this.queryItins}
                       logout={this.logout}
                       newItinerary={this.newItinerary}
@@ -246,7 +246,11 @@ class App extends Component {
                 <Route
                   path="/dashboard/newitinerary"
                   render={props => (
-                    <NewItin {...props} newItinerary={this.newItinerary} />
+                    <NewItin
+                      {...props}
+                      user={this.state.user}
+                      newItinerary={this.newItinerary}
+                    />
                   )}
                 />
                 <Route
@@ -255,6 +259,7 @@ class App extends Component {
                   render={props => (
                     <ItinList
                       {...props}
+                      user={this.state.user}
                       queryItins={this.queryItins}
                       itineraries={this.itineraries}
                       dataLoaded={this.dataLoaded}

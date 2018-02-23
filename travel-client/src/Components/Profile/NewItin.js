@@ -18,6 +18,7 @@ export default class NewItin extends Component {
 			date_departing: "",
 			date_returning: "",
 			budget: "",
+			user_id: this.props.user.id,
 			reDirect: false
 		};
 		this.submitItinerary = this.submitItinerary.bind(this);
@@ -63,7 +64,9 @@ export default class NewItin extends Component {
 										name="date_departing"
 										value={this.state.date_departing}
 										placeholder="Departing"
-										onChange={this.changeItinerary.bind(this)}
+										onChange={this.changeItinerary.bind(
+											this
+										)}
 									/>
 									<div />
 									<input
@@ -72,7 +75,9 @@ export default class NewItin extends Component {
 										name="date_returning"
 										value={this.state.date_returning}
 										placeholder="Returning"
-										onChange={this.changeItinerary.bind(this)}
+										onChange={this.changeItinerary.bind(
+											this
+										)}
 									/>
 								</div>
 							</div>

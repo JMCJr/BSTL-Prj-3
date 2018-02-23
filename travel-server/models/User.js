@@ -62,7 +62,11 @@ User.login = function(req, res, next) {
       res.locals.user = userData;
 
       const data = {
-        email: userData.email
+        email: userData.email,
+        id: userData.id,
+        fname: userData.fname,
+        lname: userData.lname,
+        username: userData.username
       };
 
       // and pass it into makeToken

@@ -18,7 +18,8 @@ export default class YourItinPage extends Component {
 		this.state = {
 			dataLoaded: false,
 			itinerary: "",
-			allActivities: []
+			allActivities: [],
+			activityCount: ""
 		};
 		this.getItinerary = this.getItinerary.bind(this);
 		this.getActivities = this.getActivities.bind(this);
@@ -81,7 +82,8 @@ export default class YourItinPage extends Component {
 			console.log(response);
 			this.setState({
 				allActivities: response.data.activities,
-				dataLoaded: true
+				dataLoaded: true,
+				activityCount: response.data.activities.length
 			});
 		});
 	}
@@ -120,7 +122,10 @@ export default class YourItinPage extends Component {
 		}
 		return (
 			<div>
-				<YourItinInfo itinerary={this.state.itinerary} />
+				<YourItinInfo
+					itinerary={this.state.itinerary}
+					activityCount={this.state.activityCount}
+				/>
 				<ActivityList
 					deleteActivity={this.deleteActivity}
 					itinerary={this.state.itinerary}
