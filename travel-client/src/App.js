@@ -9,6 +9,8 @@ import {
 import "./App.css";
 import "./Delightful.css";
 import axios from "axios";
+import Logo from "./Images/LOGO.png";
+import Name from "./Images/Name-Logo.png";
 // import Landing from "./Components/Landing";
 import Signup from "./Components/Signup";
 import Login from "./Components/Login";

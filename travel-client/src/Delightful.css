@@ -66,5 +66,92 @@
   background-size: 80px 80px;
 }
 
+.LoginContain {
+  background-color: yellow;
+}
+
+.LoginForm {
+  z-index: 20;
+  margin-top: -50px;
+}
+
+.Logo {
+  position: absolute;
+  margin-left: 880px;
+  z-index: 5;
+}
+
+.Name {
+  margin-left: 340px;
+  position: absolute;
+}
+
+.Cloud1 {
+  position: absolute;
+  margin-top: 100px;
+  z-index: 3;
+  animation: FlybyA;
+  animation-iteration-count: infinite;
+  animation-duration: 165s;
+  animation-delay: 0s;
+}
+
+.Cloud2 {
+  position: absolute;
+  z-index: 4;
+  animation: FlybyB;
+  animation-iteration-count: infinite;
+  animation-duration: 135s;
+  animation-delay: 0s;
+}
+
+.Cloud3 {
+  position: absolute;
+  z-index: 2;
+  animation: FlybyC;
+  animation-iteration-count: infinite;
+  animation-duration: 215s;
+  animation-delay: 0s;
+}
+
+@keyframes FlybyA {
+  0% {
+    margin-left: -70px;
+  }
+
+  100% {
+    margin-left: 1900px;
+  }
+}
+
+@keyframes FlybyB {
+  0% {
+    margin-left: 950px;
+  }
+
+  100% {
+    margin-left: -200px;
+  }
+}
+
+@keyframes FlybyC {
+  0% {
+    margin-left: 800px;
+  }
+
+  100% {
+    margin-left: -200px;
+  }
+}
+
+.Reg-form {
+  z-index: 20;
+}
+
+.signupform {
+   {
+    margin-left: 300px !important;
+  }
+}
 /*////////////*/
 /*Background iamge stuff*/

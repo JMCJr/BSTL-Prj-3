@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  background-color: lightblue;
 }
 
 .Backdrop {
@@ -180,7 +179,7 @@ textarea {
 }
 .Your-itin-heading {
   text-align: left;
-  color: white;
+  color: grey;
 }
 .New-itinerary-heading {
   color: grey;
@@ -245,7 +244,6 @@ input {
 }
 
 .profileIMG {
-  background-color: yellow;
   height: 80px;
   width: 80px;
   flex-grow: 1;
@@ -276,8 +274,11 @@ input {
 }
 
 .login {
-  flex-grow: 1;
-  margin: 200px;
+  margin-top: 300px;
+  position: fixed;
+  align-items: left;
+  margin-left: 200px;
+  z-index: 20;
 }
 
 .landingTitle {

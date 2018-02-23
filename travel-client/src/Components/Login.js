@@ -7,6 +7,11 @@ import {
   Redirect
 } from "react-router-dom";
 import "../Delightful.css";
+import Logo from "../Images/LOGO.png";
+import Name from "../Images/Name-Logo.png";
+import Cloud1 from "../Images/Background_Pieces_2-cloud1.png";
+import Cloud2 from "../Images/Background_Pieces_2-cloud2.png";
+import Cloud3 from "../Images/Background_Pieces_2-cloud3.png";
 import ProfilePage from "./Profile/ProfilePage";
 import LoginForm from "./LoginForm";
 import axios from "axios";
@@ -30,9 +35,21 @@ export default class Login extends Component {
   render() {
     return (
       <div className="App Backdrop">
-        <button className="signout" onClick={this.props.logout}>
-          Sign out
-        </button>
+        <div className="Cloud1">
+          <img style={{ width: 1000 }} src={Cloud1} />
+        </div>
+        <div className="Cloud2">
+          <img style={{ width: 1000 }} src={Cloud2} />
+        </div>
+        <div className="Cloud3">
+          <img style={{ width: 1000 }} src={Cloud3} />
+        </div>
+        <div className="Logo">
+          <img src={Logo} />
+        </div>
+        <div className="Name">
+          <img src={Name} />
+        </div>
         <div className="login">
           <h3>LOGIN</h3>
           <LoginForm submit={this.onSubmit} />

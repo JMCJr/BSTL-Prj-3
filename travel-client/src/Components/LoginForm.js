@@ -32,38 +32,34 @@ export default class LoginForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          Email
-          <input
-            type="text"
-            name="email"
-            onChange={this.handleChange}
-            value={this.state.email}
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            name="password"
-            onChange={this.handleChange}
-            value={this.state.password}
-          />
-        </label>
-        <button type="submit" value="Submit">
-          Submit
-        </button>
+        <div>
+          <label>
+            Email
+            <input
+              type="text"
+              name="email"
+              onChange={this.handleChange}
+              value={this.state.email}
+            />
+          </label>
+          <br />
+          <br />
+          <label>
+            Password
+            <input
+              type="password"
+              name="password"
+              onChange={this.handleChange}
+              value={this.state.password}
+            />
+          </label>
+          <br />
+          <br />
+          <button type="submit" value="Submit">
+            Submit
+          </button>
+        </div>
       </form>
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
