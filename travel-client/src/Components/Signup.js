@@ -24,9 +24,7 @@ class Signup extends Component {
   render() {
     return (
       <div className="App">
-        <h1>No Wander</h1>
         <div>
-          <h3>Sign Up</h3>
           <RegisterForm submit={this.onSubmit} />
         </div>
       </div>

@@ -22,7 +22,7 @@
   background: rgba(255, 255, 255, 0.6);
   height: 90px;
   width: 100%;
-  border-bottom: 2px solid white;
+  border-bottom: 4px solid white;
 }
 
 .Centered-True {
@@ -38,7 +38,7 @@
 }
 
 .Flex-vertical {
-  /*display: flex;*/
+  display: flex;
   flex-direction: column;
 }
 .Flex-horizontal {
@@ -50,11 +50,14 @@
 .createNewItinButt {
   color: white;
   margin: 25px;
-  margin-left: 500px;
-  margin-right: 500px;
+
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 30px;
   font-size: 20px;
   height: 20px;
+  width: 340px;
   border: 2px solid white;
   border-radius: 20px;
   background-color: green;

@@ -55,12 +55,11 @@ export default class Activity extends Component {
             <div className="Activity-squares">{activity.price}</div>
           </div>
           <div>
-            <button className="Act-butts" onClick={this.modalHandler}>
-              Edit
-            </button>
-            <button className="Act-butts" onClick={this.deleteActivityHandler}>
-              Delete
-            </button>
+            <button className="Edit-Act" onClick={this.modalHandler} />
+            <button
+              className="Delete-Act"
+              onClick={this.deleteActivityHandler}
+            />
           </div>
           <Modal
             open={modalOpen}
