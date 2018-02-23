@@ -27,7 +27,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "build": "cd client/ && npm run build && mv -f ./build ../public",
+    "build":
+      "cd ../travel-client/ && npm run build && mv -f ./build ../travel-server/public",
     "setup": "mkdir public"
   },
   "author": "",
