@@ -7,6 +7,7 @@ import {
   Redirect
 } from "react-router-dom";
 import "../../Delightful.css";
+import faker from "faker";
 
 export default class YourItinInfo extends Component {
   constructor(props) {
@@ -45,7 +46,10 @@ export default class YourItinInfo extends Component {
               </div>
             </div>
             <div className="Your-itinerary-card-box Your-itin-outter">
-              TRAVELERS
+              TRAVELERS <br />
+              {faker.name.findName()} <br />
+              {faker.name.findName()} <br />
+              {faker.name.findName()} <br />
             </div>
           </div>
         </div>
