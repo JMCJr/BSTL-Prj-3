@@ -41,7 +41,7 @@ export default class MenuItem extends Component {
     return (
       <div>
         <Link to={`/dashboard/itinerary/${itinerary.id}`}>
-          <p className="menuDropItem">Name: {itinerary.name}</p>
+          <p className="menuDropItem">{itinerary.name}</p>
         </Link>
       </div>
     );

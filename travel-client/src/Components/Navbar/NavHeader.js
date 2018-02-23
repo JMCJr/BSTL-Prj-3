@@ -35,7 +35,7 @@ export default class NavHeader extends Component {
     }
     return (
       <div className="navEntire">
-        <Link to={"/dashboard"}>
+        <Link to={"/login"}>
           <div className="profileIMG" />
         </Link>
 
@@ -49,9 +49,8 @@ export default class NavHeader extends Component {
           name="show itinerary"
           onClick={this.handleOpenMenu}
         >
-          Show My Itineraries
+          View My Itineraries
         </button>
-
         {maybeMenuOpen}
       </div>
     );

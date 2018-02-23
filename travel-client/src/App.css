@@ -2,7 +2,18 @@
   text-align: center;
   background-color: lightblue;
 }
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Patua One", cursive;
+}
+body {
+  font-family: "Amaranth", sans-serif;
+  letter-spacing: 1px;
+}
 .Backdrop {
   background: #88c0e8;
   height: 100vh;
@@ -180,7 +191,7 @@ textarea {
 }
 .Your-itin-heading {
   text-align: left;
-  color: white;
+  color: grey;
 }
 .New-itinerary-heading {
   color: grey;
@@ -240,10 +251,18 @@ input {
 }*/
 
 /*drop-down for the NAV bar*/
+
 .dropMenu {
   width: 60px;
 }
-
+.menuDropBackground {
+}
+.menuDropItem {
+  font-size: 20px;
+  width: 130px;
+  height: 40px;
+  border-bottom: 1px solid white;
+}
 .profileIMG {
   background-color: yellow;
   height: 80px;
@@ -262,13 +281,6 @@ input {
   background-color: orange;
   border: 1px solid white;
   width: 130px;
-}
-.menuDropItem {
-  font-size: 12px;
-  width: 130px;
-  height: 40px;
-  background-color: grey;
-  border-bottom: 1px solid white;
 }
 
 .landingContainer {
@@ -315,7 +327,7 @@ input {
 
 .signoutButton {
   margin: auto 0;
-
+  cursor: pointer;
   height: 20px;
   width: auto;
 }
@@ -326,12 +338,15 @@ input {
 
 .itineraryDropdown {
   z-index: 4;
+  position: absolute;
+  right: 12%;
+  top: 8%;
 }
 
 .navEntire {
   display: flex;
   flex-direction: row;
-  background-color: rgba(176, 176, 176, 0.8);
+  padding-top: 5px;
   justify-content: space-around;
 }
 
@@ -340,4 +355,11 @@ input {
   box-shadow: 10px 10px 5px #888888;
   padding: 10px;
   padding-bottom: 20px;
+}
+a:link {
+  text-decoration: none;
+}
+a:hover {
+  border: 0.5 solid grey;
+  font-size: ;
 }
