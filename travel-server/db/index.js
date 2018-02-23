@@ -13,9 +13,9 @@ const cn = {
 // add a password
 // lawl --Drake
 if (process.env.KEITH_PASS) {
-  cn.password = process.env.KEITH_PASS
+  cn.password = process.env.KEITH_PASS;
 }
 
-const db = pgp(cn);
+const db = pgp(process.env.DATABASE_URL || cn);
 
 module.exports = db;
