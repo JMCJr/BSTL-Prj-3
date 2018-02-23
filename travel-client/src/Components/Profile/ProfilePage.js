@@ -16,9 +16,6 @@ export default class ProfilePage extends Component {
 	constructor(props) {
 		super(props);
 	}
-	componentDidMount() {
-		console.log("ProfilePage mount");
-	}
 	render() {
 		return (
 			<Router>
