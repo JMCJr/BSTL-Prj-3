@@ -1,4 +1,4 @@
-require('dotenv').config();
+require("dotenv").config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const logger = require("morgan");
@@ -20,17 +20,18 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const nowanderRoutes = require("./controllers/noWander.js");
 app.use("/api/noWander", nowanderRoutes);
 
+//TAKEN FROM AUTH RESTRICT REACT LESSON
 app.use("/users", userRouter);
 
-app.get("/restricted", authService.restrict(), (req, res) => {
-  res.json({ msg: "yay" });
+app.get("/isLoggedIn", authService.isLoggedIn, (req, res) => {
+	res.json({ isLoggedIn: res.locals.isLoggedIn });
 });
-
+//
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, function() {
-  console.log(`listening on port ${PORT}`);
+	console.log(`listening on port ${PORT}`);
 });
 
 app.get("*", function(req, res) {
-  res.status(404).send({ message: "Oops22! Not found." });
+	res.status(404).send({ message: "Oops22! Not found." });
 });

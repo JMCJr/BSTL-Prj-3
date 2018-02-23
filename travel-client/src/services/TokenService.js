@@ -4,7 +4,7 @@ export default {
   },
 
   read() {
-    return window.localStorage.getItem("authToken"); // fetch the token out of localStorage
+    return window.localStorage.getItem("authToken") || ""; // fetch the token out of localStorage
   },
 
   destroy() {

@@ -38,6 +38,7 @@ noWander.allActivities = (req, res, next) => {
 //------------------------------------------------------
 
 noWander.allItineraries = (req, res, next) => {
+  console.log("&&&, all itineraries");
   db
     .manyOrNone("SELECT * FROM itinerary;")
     .then(itineraries => {

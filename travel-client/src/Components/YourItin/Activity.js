@@ -18,27 +18,20 @@ export default class Activity extends Component {
     };
     this.modalHandler = this.modalHandler.bind(this);
 
-    this.deleteActivity = this.deleteActivity.bind(this);
+    this.deleteActivityHandler = this.deleteActivityHandler.bind(this);
   }
-  deleteActivity(e) {
-    e.preventDefault();
-    axios({
-      url: `http://localhost:8080/api/noWander/itinerary/${
-        this.props.activity.id
-      }/activity`,
-      method: "DELETE"
-    }).then(response => {
-      console.log(response);
-      this.props.getActivities(this.props.itineraryID);
-    });
-  }
+
   modalHandler() {
     this.setState(prevState => {
       prevState.modalOpen = !prevState.modalOpen;
       return prevState;
     });
   }
-
+  deleteActivityHandler(e) {
+    e.preventDefault();
+    console.log("DELETE ACTVITY HANDELR :", this.props.activity);
+    this.props.deleteActivity(this.props.activity.id);
+  }
   render() {
     const activity = this.props.activity;
     const { modalOpen } = this.state;
@@ -64,7 +57,7 @@ export default class Activity extends Component {
             <button className="Act-butts" onClick={this.modalHandler}>
               Edit
             </button>
-            <button className="Act-butts" onClick={this.deleteActivity}>
+            <button className="Act-butts" onClick={this.deleteActivityHandler}>
               Delete
             </button>
           </div>

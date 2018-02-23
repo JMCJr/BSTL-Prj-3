@@ -12,11 +12,9 @@ import Itin from "./Itin";
 export default class ItinList extends Component {
 	constructor(props) {
 		super(props);
-		this.getItins = this.getItins.bind(this);
 		this.renderItineraries = this.renderItineraries.bind(this);
 
 		this.state = {
-			allItineraries: [],
 			dataLoaded: false
 		};
 	}
@@ -24,28 +22,15 @@ export default class ItinList extends Component {
 		return <Itin itinerary={itinerary} index={index} key={index} />;
 	}
 
-	getItins() {
-		axios({
-			url: "http://localhost:8080/api/nowander/dashboard",
-			method: "GET"
-		}).then(response => {
-			console.log("in ProfilePage : ", response.data.itineraries);
-			this.setState({
-				allItineraries: response.data.itineraries,
-				dataLoaded: true
-			});
-		});
-	}
 	componentDidMount() {
-		this.getItins();
+		this.props.queryItins();
+		console.log("ITINLIST-- -componentDidMount");
 	}
 	render() {
-		if (!this.state.dataLoaded) {
+		if (!this.props.dataLoaded) {
 			return "PAGE LOADINGGGG";
 		}
-		const itineraries = this.state.allItineraries.map(
-			this.renderItineraries
-		);
+		const itineraries = this.props.itineraries.map(this.renderItineraries);
 		return (
 			<div className="Overflow Centered-True Itinerary-box">
 				<div className="Flex-vertical">{itineraries}</div>

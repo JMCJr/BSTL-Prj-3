@@ -9,6 +9,7 @@ import {
 import axios from "axios";
 import YourItinInfo from "./YourItinInfo";
 import ActivityList from "./ActivityList";
+import TokenService from "../../services/TokenService";
 
 export default class YourItinPage extends Component {
 	constructor(props) {
@@ -22,11 +23,29 @@ export default class YourItinPage extends Component {
 		this.getActivities = this.getActivities.bind(this);
 		this.newActivityPost = this.newActivityPost.bind(this);
 		this.editActivity = this.editActivity.bind(this);
+		this.deleteActivity = this.deleteActivity.bind(this);
+	}
+	// this.state.itinerary
+	//AXIOS CALLS BEGIN
+	deleteActivity(id) {
+		axios({
+			url: `http://localhost:8080/api/noWander/itinerary/${id}/activity`,
+			method: "DELETE",
+			headers: {
+				Authorization: `Bearer ${TokenService.read()}`
+			}
+		}).then(response => {
+			console.log(response);
+			this.getActivities(this.state.itinerary.id);
+		});
 	}
 	getItinerary(id) {
 		axios({
 			url: `http://localhost:8080/api/nowander/itinerary/${id}`,
-			method: "GET"
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${TokenService.read()}`
+			}
 		}).then(response => {
 			console.log("in YourItinPage: ", response.data);
 			this.setState({
@@ -40,20 +59,23 @@ export default class YourItinPage extends Component {
 		axios({
 			url: `http://localhost:8080/api/nowander/itinerary/${id}`,
 			method: "POST",
-			data: newActivity
+			data: newActivity,
+			headers: {
+				Authorization: `Bearer ${TokenService.read()}`
+			}
 		}).then(res => {
 			console.log(res);
 			this.getActivities(id);
 		});
 	}
-	componentDidMount() {
-		console.log("instance");
-		this.getItinerary(this.props.match.params.id);
-	}
+
 	getActivities(id) {
 		axios({
 			url: `http://localhost:8080/api/nowander/itinerary/${id}/activity`,
-			method: "GET"
+			method: "GET",
+			headers: {
+				Authorization: `Bearer ${TokenService.read()}`
+			}
 		}).then(response => {
 			console.log(response);
 			this.setState({
@@ -68,15 +90,26 @@ export default class YourItinPage extends Component {
 				activity.itinerary_id
 			}/${activity.activityId}`,
 			method: "PUT",
-			data: activity
+			data: activity,
+			headers: {
+				Authorization: `Bearer ${TokenService.read()}`
+			}
 		}).then(res => {
 			console.log(res);
 			this.getActivities(activity.itinerary_id);
 		});
 	}
 
+	//AXIOS CALLS END
+
+	//
+	componentDidMount() {
+		console.log("instance");
+		this.getItinerary(this.props.match.params.id);
+	}
 	componentWillReceiveProps(nextProps) {
 		this.getItinerary(nextProps.match.params.id);
+		this.getActivities(nextProps.match.params.id);
 		console.log("heyyy", nextProps);
 	}
 
@@ -88,6 +121,7 @@ export default class YourItinPage extends Component {
 			<div>
 				<YourItinInfo itinerary={this.state.itinerary} />
 				<ActivityList
+					deleteActivity={this.deleteActivity}
 					itinerary={this.state.itinerary}
 					getActivities={this.getActivities}
 					allActivities={this.state.allActivities}

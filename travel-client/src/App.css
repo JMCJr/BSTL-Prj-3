@@ -31,7 +31,7 @@
 }
 .Overflow {
   overflow: scroll;
-  margin-top: 40px ;
+  margin-top: 40px;
   height: 300px;
 }
 .Centered-True {
@@ -241,7 +241,7 @@ input {
 }
 
 /*drop-down for the NAV bar*/
-.dropMenu{
+.dropMenu {
   width: 60px;
 }
 
@@ -317,26 +317,43 @@ input {
   margin-top: 20px;
 }*/
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+/*----------------------------------------------------------------------*/
+/*Leon’s Nav adjustments 2/22*/
+/*drop-down for the NAV bar*/
+
+.dropMenu {
+  width: 60px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.profilePic {
+  height: 80px;
+  width: 70px;
+  flex: 1;
 }
 
-.App-intro {
-  font-size: large;
+.signoutButton {
+  height: 80px;
+  width: auto;
+  flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.emptyMenuItem {
+  height: 80px;
+}
+
+.itineraryDropdown {
+  background-color: red;
+}
+
+.navEntire {
+  display: flex;
+  background-color: lightgray;
+  justify-content: center;
+}
+
+.box {
+  width: 99%;
+  box-shadow: 10px 10px 5px #888888;
+  padding: 10px;
+  padding-bottom: 20px;
 }
