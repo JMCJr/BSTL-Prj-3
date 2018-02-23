@@ -264,10 +264,6 @@ input {
   flex-grow: 8;
 }
 
-.dropWhole {
-  background-color: red;
-  z-index: 4;
-}
 
 .itineraryDrop {
   background-color: orange;
@@ -343,6 +339,7 @@ input {
 
 .itineraryDropdown {
   background-color: red;
+  z-index: 4;
 }
 
 .navEntire {

@@ -16,7 +16,8 @@ export default class NewItin extends Component {
 			city: "",
 			date_departing: "",
 			date_returning: "",
-			budget: ""
+			budget: "",
+			reDirect: false
 		};
 		this.submitItinerary = this.submitItinerary.bind(this);
 	}
@@ -31,6 +32,7 @@ export default class NewItin extends Component {
 		ev.preventDefault();
 		console.log(ev);
 		this.props.newItinerary(this.state);
+		this.setState({reDirect:true});
 	}
 
 	render() {
@@ -60,9 +62,7 @@ export default class NewItin extends Component {
 										name="date_departing"
 										value={this.state.date_departing}
 										placeholder="Departing"
-										onChange={this.changeItinerary.bind(
-											this
-										)}
+										onChange={this.changeItinerary.bind(this)}
 									/>
 									<div />
 									<input
@@ -71,9 +71,7 @@ export default class NewItin extends Component {
 										name="date_returning"
 										value={this.state.date_returning}
 										placeholder="Returning"
-										onChange={this.changeItinerary.bind(
-											this
-										)}
+										onChange={this.changeItinerary.bind(this)}
 									/>
 								</div>
 							</div>
@@ -100,6 +98,9 @@ export default class NewItin extends Component {
 					</div>
 					<input className="New-itinerary-submit" type="submit" />
 				</form>
+				{this.state.reDirect &&  (
+					<Redirect to ={'/dashboard'}/>
+					)}
 			</div>
 		);
 	}
