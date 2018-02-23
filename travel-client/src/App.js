@@ -118,7 +118,6 @@ class App extends Component {
     axios({
       url: "http://localhost:8080/api/nowander/dashboard",
       method: "get",
-      // data: id,
       headers: {
         Authorization: `Bearer ${TokenService.read()}`
       }
@@ -181,11 +180,12 @@ class App extends Component {
       }
     })
       .then(resp => {
+        console.log("checkLogin", resp.data);
         this.setState({
-          isLoggedIn: resp.data.isLoggedIn
+          isLoggedIn: resp.data.isLoggedIn,
+          user: resp.data.user
         });
-        // this.queryItins();
-        console.log("post-login", this.state);
+        this.queryItins(resp.data.user.id);
       })
       .catch(err => {
         console.log(err);
@@ -194,7 +194,6 @@ class App extends Component {
 
   // _______________________
   componentDidMount() {
-    // console.log("The token Serv: ", TokenService.read());
     this.checkLogin();
     // this.queryItins(this.state.userID);
     console.log("APPjs mount", this.state.userID);
