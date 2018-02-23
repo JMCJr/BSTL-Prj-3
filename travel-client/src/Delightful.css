@@ -1,0 +1,70 @@
+/* Additional CSS */
+/* Just to break it down and make it a little more readable - godspeed, good reader. */
+
+.Itin-container {
+  display: flex;
+  /*background: pink;*/
+  margin-bottom: 20px;
+  /* border-radius: 20px;*/
+
+  /* border: 1px solid #88c0e8;*/
+  /* padding: 5px;*/
+}
+
+.Itinerary-box {
+  /*width: 45%;*/
+  border-radius: 20px;
+  /*border: 1px solid #88c0e8;*/
+}
+
+.Itinerary-card {
+  align-content: center;
+  background: rgba(255, 255, 255, 0.6);
+  height: 90px;
+  width: 100%;
+  border-bottom: 2px solid white;
+}
+
+.Centered-True {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.Overflow {
+  overflow: scroll;
+  margin-top: 60px;
+  height: 300px;
+}
+
+.Flex-vertical {
+  /*display: flex;*/
+  flex-direction: column;
+}
+.Flex-horizontal {
+  display: flex;
+  padding-top: 13px;
+  flex-direction: row;
+}
+
+.createNewItinButt {
+  color: white;
+  margin: 25px;
+  margin-left: 500px;
+  margin-right: 500px;
+  padding: 30px;
+  font-size: 20px;
+  height: 20px;
+  border: 2px solid white;
+  border-radius: 20px;
+  background-color: green;
+}
+
+.profileIMG {
+  background: url(Images/user-profile-pics_4.png);
+  background-repeat: no-repeat;
+  background-size: 80px 80px;
+}
+
+/*////////////*/
+/*Background iamge stuff*/

@@ -7,6 +7,7 @@ import {
   Redirect
 } from "react-router-dom";
 import axios from "axios";
+import "../../Delightful.css";
 import Modal from "react-responsive-modal";
 import EditYourActivityForm from "./EditYourActivityForm";
 

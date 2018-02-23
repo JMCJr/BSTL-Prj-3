@@ -1,13 +1,19 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Link, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import MenuItem from "./MenuItem";
-import '../../App.css';
+import "../../Delightful.css";
+import "../../App.css";
 import axios from "axios";
 
 export default class DropdownButt extends Component {
-
-  constructor(props){
-  super(props);
+  constructor(props) {
+    super(props);
     this.getItins = this.getItins.bind(this);
     this.renderItineraries = this.renderItineraries.bind(this);
 
@@ -16,7 +22,6 @@ export default class DropdownButt extends Component {
       dataLoaded: false
     };
   }
-
 
   renderItineraries(itinerary, index) {
     return <MenuItem itinerary={itinerary} key={index} />;
@@ -36,17 +41,13 @@ export default class DropdownButt extends Component {
   }
   componentDidMount() {
     this.getItins();
-  }    
+  }
 
   render() {
     if (!this.state.dataLoaded) {
       return "PAGE LOADING";
     }
-    const itineraries = this.state.allItineraries.map(
-      this.renderItineraries
-    );
-    return (
-      <div className="menuDropItem">{itineraries}</div>
-    );
-}
+    const itineraries = this.state.allItineraries.map(this.renderItineraries);
+    return <div className="menuDropItem">{itineraries}</div>;
+  }
 }

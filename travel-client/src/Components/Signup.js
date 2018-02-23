@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../App.css";
+import "../Delightful.css";
 import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
 import RegisterForm from "./RegisterForm";

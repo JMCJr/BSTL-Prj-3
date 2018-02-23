@@ -6,6 +6,7 @@ import {
 	Switch,
 	Redirect
 } from "react-router-dom";
+import "./Delightful.css";
 import Signup from "./Signup";
 import Login from "./Login";
 import ProfilePage from "./Profile/ProfilePage";
@@ -15,16 +16,10 @@ export default class Landing extends Component {
 		return (
 			<div className="App Backdrop">
 				<Switch>
-					<Route
-						exact
-						path="/"
-						render={() => <Redirect to="/login" />}
-					/>
+					<Route exact path="/" render={() => <Redirect to="/login" />} />
 					<Route
 						path="/login"
-						render={props => (
-							<Login {...props} login={this.props.login} />
-						)}
+						render={props => <Login {...props} login={this.props.login} />}
 					/>
 					<Route
 						path="/signup"

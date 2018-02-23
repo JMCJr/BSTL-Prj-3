@@ -7,6 +7,7 @@ import {
 	Redirect
 } from "react-router-dom";
 import axios from "axios";
+import "../../Delightful.css";
 
 export default class NewItin extends Component {
 	constructor(props) {
@@ -32,7 +33,7 @@ export default class NewItin extends Component {
 		ev.preventDefault();
 		console.log(ev);
 		this.props.newItinerary(this.state);
-		this.setState({reDirect:true});
+		this.setState({ reDirect: true });
 	}
 
 	render() {
@@ -98,9 +99,7 @@ export default class NewItin extends Component {
 					</div>
 					<input className="New-itinerary-submit" type="submit" />
 				</form>
-				{this.state.reDirect &&  (
-					<Redirect to ={'/dashboard'}/>
-					)}
+				{this.state.reDirect && <Redirect to={"/dashboard"} />}
 			</div>
 		);
 	}

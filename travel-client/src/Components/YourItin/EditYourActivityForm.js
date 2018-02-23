@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import axios from "axios";
+import "../../Delightful.css";
 
 class EditYourActivityForm extends Component {
   constructor(props) {

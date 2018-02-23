@@ -6,14 +6,16 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import "./Delightful.css";
 
 export default class UserInfo extends Component {
-  render(){
-    return(
-    <div>
-       <div className="profilePic"></div>
-      <p>user name</p>
-      <p>user email</p>
-    </div>
-  )}
+  render() {
+    return (
+      <div>
+        <div className="profilePic" />
+        <p>user name</p>
+        <p>user email</p>
+      </div>
+    );
+  }
 }

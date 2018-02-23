@@ -7,6 +7,10 @@
   background: #88c0e8;
   height: 100vh;
   width: 100vw;
+  background-image: url(Images/Background_Pieces_1-Back.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 .Hidden {
   display: none;
@@ -34,30 +38,21 @@
   margin-top: 40px;
   height: 300px;
 }
-.Centered-True {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
+
 .Itinerary-box {
   width: 45%;
-  border-radius: 5px;
+  border-radius: 20px;
   border: 1px solid #88c0e8;
 }
 .Flex-vertical {
-  display: flex;
-  flex-direction: row;
+  /*display: flex;*/
+  flex-direction: column;
 }
 .Flex-horizontal {
   display: flex;
   flex-direction: row;
 }
-.Itinerary-card {
-  background: rgba(255, 255, 255, 0.6);
-  height: 90px;
-  width: 100%;
-  margin-bottom: 3px;
-}
+
 .Flex-space-around {
   justify-content: space-around;
 }
@@ -75,7 +70,7 @@
   transform: translateX(-50%);
 }
 .Activity-container {
-  background: pink;
+  background: rgba(255, 255, 255, 0.6);
   margin-bottom: 20px;
   border-radius: 20px;
   border: 1px solid #88c0e8;
@@ -88,17 +83,21 @@
 
 .Active-Headbar {
   display: flex;
-  justify-content: ;
-  justify-content: space-between;
+  justify-content: flex-start;
+  border-bottom: 1px solid grey;
 }
 
 .Vote-Head {
+  margin-right: 60px;
+  padding-bottom: 15px;
 }
 
 .Act-Head {
+  margin-right: 80px;
 }
 
 .Desc-Head {
+  margin-right: 94px;
 }
 
 .Cost-Head {
@@ -164,7 +163,7 @@ textarea {
   height: 250px;
 }
 .Your-itinerary-card-box {
-  background: pink;
+  background: rgba(255, 255, 255, 0.6);
   margin-bottom: 20px;
   border-radius: 5px;
   border: 1px solid #88c0e8;
@@ -184,7 +183,7 @@ textarea {
   color: white;
 }
 .New-itinerary-heading {
-  color: white;
+  color: grey;
 }
 .Grid-col-2 {
   grid-column-start: 2;
@@ -232,13 +231,13 @@ input {
 }
 /**/
 
-.navWhole {
+/*.navWhole {
   background-color: lightgray;
   height: 120px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-}
+}*/
 
 /*drop-down for the NAV bar*/
 .dropMenu {
@@ -259,12 +258,6 @@ input {
   flex-grow: 1;
 }
 
-.emptyMenuItem {
-  height: 80px;
-  flex-grow: 8;
-}
-
-
 .itineraryDrop {
   background-color: orange;
   border: 1px solid white;
@@ -273,8 +266,8 @@ input {
 .menuDropItem {
   font-size: 12px;
   width: 130px;
-  height: 20px;
-  background-color: red;
+  height: 40px;
+  background-color: grey;
   border-bottom: 1px solid white;
 }
 
@@ -294,16 +287,6 @@ input {
   /*padding-right: 200px;*/
 }
 
-.createNewItinButt {
-  margin: 15px;
-  padding: 30px;
-  font-size: 20px;
-  height: 20px;
-
-  border-radius: 20px;
-  background-color: lightgreen;
-}
-
 /*.profilePic{
   height: 80px;
   width: 80px;
@@ -318,19 +301,23 @@ input {
 /*drop-down for the NAV bar*/
 
 .dropMenu {
-  width: 60px;
+  margin: auto 0;
+  width: 100px;
+  height: 30px;
 }
 
 .profilePic {
-  height: 80px;
+  margin: auto 0;
+  padding: 10px;
+  height: 70px;
   width: 70px;
-  flex: 1;
 }
 
 .signoutButton {
-  height: 80px;
+  margin: auto 0;
+
+  height: 20px;
   width: auto;
-  flex: 1;
 }
 
 .emptyMenuItem {
@@ -338,14 +325,14 @@ input {
 }
 
 .itineraryDropdown {
-  background-color: red;
   z-index: 4;
 }
 
 .navEntire {
   display: flex;
-  background-color: lightgray;
-  justify-content: center;
+  flex-direction: row;
+  background-color: rgba(176, 176, 176, 0.8);
+  justify-content: space-around;
 }
 
 .box {

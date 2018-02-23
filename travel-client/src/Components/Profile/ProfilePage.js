@@ -6,6 +6,7 @@ import {
 	Switch,
 	Redirect
 } from "react-router-dom";
+import "../../Delightful.css";
 import NavHeader from "../Navbar/NavHeader";
 import ItinList from "./ItinList";
 import NewItin from "./NewItin";

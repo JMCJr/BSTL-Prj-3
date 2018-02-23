@@ -6,6 +6,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import "./Delightful.css";
 import ItinList from "./ItinList";
 import UserCard from "./UserCard";
 import axios from "axios";
@@ -20,9 +21,8 @@ export default class UserInfo extends Component {
   render() {
     return (
       <div>
-
-        <UserCard/>
-        <ItinList/>
+        <UserCard />
+        <ItinList />
       </div>
     );
   }

@@ -6,6 +6,8 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import "../../Delightful.css";
+import "../../Images/user-profile-pics_4.png";
 import DropdownButt from "./DropdownButt";
 
 export default class NavHeader extends Component {
@@ -34,12 +36,13 @@ export default class NavHeader extends Component {
     return (
       <div className="navEntire">
         <Link to={"/dashboard"}>
-          <p className="profileIMG">Profile Image</p>
+          <div className="profileIMG" />
         </Link>
 
-        <button className="signoutButton" onClick={this.props.logout}>
+        <div className="signoutButton" onClick={this.props.logout}>
           Sign out
-        </button>
+        </div>
+
         <button
           className="dropMenu"
           type="submit"

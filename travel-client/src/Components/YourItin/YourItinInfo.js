@@ -6,6 +6,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import "../../Delightful.css";
 
 export default class YourItinInfo extends Component {
   constructor(props) {

@@ -7,6 +7,7 @@ import {
   Redirect
 } from "react-router-dom";
 import axios from "axios";
+import "../../Delightful.css";
 
 export default class NewActivity extends Component {
   constructor(props) {

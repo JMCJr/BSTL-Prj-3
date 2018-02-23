@@ -7,6 +7,7 @@ import {
   Redirect
 } from "react-router-dom";
 import "./App.css";
+import "./Delightful.css";
 import axios from "axios";
 // import Landing from "./Components/Landing";
 import Signup from "./Components/Signup";

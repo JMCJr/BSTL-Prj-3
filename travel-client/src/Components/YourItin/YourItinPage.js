@@ -7,6 +7,7 @@ import {
 	Redirect
 } from "react-router-dom";
 import axios from "axios";
+import "../../Delightful.css";
 import YourItinInfo from "./YourItinInfo";
 import ActivityList from "./ActivityList";
 import TokenService from "../../services/TokenService";

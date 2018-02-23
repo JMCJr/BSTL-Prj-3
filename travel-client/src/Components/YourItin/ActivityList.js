@@ -7,6 +7,7 @@ import {
   Redirect
 } from "react-router-dom";
 import axios from "axios";
+import "../../Delightful.css";
 import Activity from "./Activity";
 import NewActivity from "./NewActivity";
 import Modal from "react-responsive-modal";

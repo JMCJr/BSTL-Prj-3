@@ -6,6 +6,7 @@ import {
   Switch,
   Redirect
 } from "react-router-dom";
+import "../Delightful.css";
 import ProfilePage from "./Profile/ProfilePage";
 import LoginForm from "./LoginForm";
 import axios from "axios";

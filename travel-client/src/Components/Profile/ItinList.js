@@ -7,6 +7,7 @@ import {
 	Redirect
 } from "react-router-dom";
 import axios from "axios";
+import "../../Delightful.css";
 import Itin from "./Itin";
 
 export default class ItinList extends Component {
@@ -28,12 +29,12 @@ export default class ItinList extends Component {
 	}
 	render() {
 		if (!this.props.dataLoaded) {
-			return "PAGE LOADINGGGG";
+			return "Your page is wandering over now";
 		}
 		const itineraries = this.props.itineraries.map(this.renderItineraries);
 		return (
 			<div className="Overflow Centered-True Itinerary-box">
-				<div className="Flex-vertical">{itineraries}</div>
+				<div className="Itin-container Flex-vertical">{itineraries}</div>
 			</div>
 		);
 	}
