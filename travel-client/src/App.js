@@ -54,7 +54,7 @@ class App extends Component {
 
     console.log("LOGIN - BEFORE AXIOS", this.state);
 
-    axios("http://localhost:3000/users/login", {
+    axios("/users/login", {
       method: "POST",
       data
     })
@@ -75,7 +75,7 @@ class App extends Component {
     this.setState({
       isLoggedIn: "WAITING"
     });
-    axios("http://localhost:3000/users/", {
+    axios("/users/", {
       method: "POST",
       data
     })
@@ -104,7 +104,7 @@ class App extends Component {
   //
   newItinerary(newItinerary) {
     axios({
-      url: "http://localhost:8080/api/nowander/dashboard",
+      url: "/api/nowander/dashboard",
       method: "POST",
       data: newItinerary,
       headers: {
@@ -118,7 +118,7 @@ class App extends Component {
   queryItins(id) {
     console.log("queryItins", id);
     axios({
-      url: `http://localhost:8080/api/nowander/dashboard/user/${id}`,
+      url: `/api/nowander/dashboard/user/${id}`,
       method: "get",
       headers: {
         Authorization: `Bearer ${TokenService.read()}`
@@ -136,7 +136,7 @@ class App extends Component {
 
   editYourItinForm(data) {
     axios({
-      url: `http://localhost:8080/api/noWander/itinerary/${data.id}`,
+      url: `/api/noWander/itinerary/${data.id}`,
       method: "put",
       data: data,
       headers: {
@@ -155,7 +155,7 @@ class App extends Component {
 
   editUserProfileForm(data) {
     axios({
-      url: `http://localhost:8080/api/noWander/users/${data.id}`,
+      url: `/api/noWander/users/${data.id}`,
       method: "put",
       data: data,
       headers: {
@@ -176,7 +176,7 @@ class App extends Component {
     this.setState({
       isLoggedIn: "WAITING"
     });
-    axios("http://localhost:3000/isLoggedIn", {
+    axios("/isLoggedIn", {
       headers: {
         Authorization: `Bearer ${TokenService.read()}`
       }

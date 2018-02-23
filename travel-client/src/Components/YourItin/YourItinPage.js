@@ -31,7 +31,7 @@ export default class YourItinPage extends Component {
 	//AXIOS CALLS BEGIN
 	deleteActivity(id) {
 		axios({
-			url: `http://localhost:8080/api/noWander/itinerary/${id}/activity`,
+			url: `/api/noWander/itinerary/${id}/activity`,
 			method: "DELETE",
 			headers: {
 				Authorization: `Bearer ${TokenService.read()}`
@@ -43,7 +43,7 @@ export default class YourItinPage extends Component {
 	}
 	getItinerary(id) {
 		axios({
-			url: `http://localhost:8080/api/nowander/itinerary/${id}`,
+			url: `/api/nowander/itinerary/${id}`,
 			method: "GET",
 			headers: {
 				Authorization: `Bearer ${TokenService.read()}`
@@ -59,7 +59,7 @@ export default class YourItinPage extends Component {
 	newActivityPost(newActivity) {
 		const id = newActivity.itinerary_id;
 		axios({
-			url: `http://localhost:8080/api/nowander/itinerary/${id}`,
+			url: `/api/nowander/itinerary/${id}`,
 			method: "POST",
 			data: newActivity,
 			headers: {
@@ -73,7 +73,7 @@ export default class YourItinPage extends Component {
 
 	getActivities(id) {
 		axios({
-			url: `http://localhost:8080/api/nowander/itinerary/${id}/activity`,
+			url: `/api/nowander/itinerary/${id}/activity`,
 			method: "GET",
 			headers: {
 				Authorization: `Bearer ${TokenService.read()}`
@@ -89,9 +89,9 @@ export default class YourItinPage extends Component {
 	}
 	editActivity(activity) {
 		axios({
-			url: `http://localhost:8080/api/nowander/itinerary/${
-				activity.itinerary_id
-			}/${activity.activityId}`,
+			url: `/api/nowander/itinerary/${activity.itinerary_id}/${
+				activity.activityId
+			}`,
 			method: "PUT",
 			data: activity,
 			headers: {

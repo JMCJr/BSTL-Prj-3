@@ -29,7 +29,7 @@ export default class DropdownButt extends Component {
 
   getItins(id) {
     axios({
-      url: `http://localhost:8080/api/nowander/dashboard/user/${id}`,
+      url: `/api/nowander/dashboard/user/${id}`,
       method: "GET"
     }).then(response => {
       console.log("in ProfilePage : ", response.data.itineraries);

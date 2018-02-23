@@ -21,7 +21,7 @@ export default class MenuItem extends Component {
 
   getItinerary(id) {
     axios({
-      url: `http://localhost:8080/api/nowander/itinerary/${id}`,
+      url: `/api/nowander/itinerary/${id}`,
       method: "GET"
     }).then(response => {
       console.log("in YourItinPage: ", response.data);
