@@ -7,7 +7,7 @@ const express = require("express"),
 // Define GET request for '/dashboard', which is ALL
 // noWanderModel.getAllItineraries
 // This is _______ job
-router.get("/dashboard", noWander.allItineraries, (req, res) => {
+router.get("/dashboard/user/:id", noWander.allItineraries, (req, res) => {
   const { itineraries } = res.locals;
   res.json({ itineraries });
 });

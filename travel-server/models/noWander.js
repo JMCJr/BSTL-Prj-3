@@ -38,9 +38,10 @@ noWander.allActivities = (req, res, next) => {
 //------------------------------------------------------
 
 noWander.allItineraries = (req, res, next) => {
-  console.log("&&&, all itineraries");
+  console.log("&&&, all itineraries-reqparams", req.params.id);
+  const id = req.params.id;
   db
-    .manyOrNone("SELECT * FROM itinerary;")
+    .manyOrNone(`SELECT * FROM itinerary WHERE user_id = ${id}`)
     .then(itineraries => {
       res.locals.itineraries = itineraries;
       next();
@@ -102,13 +103,14 @@ noWander.newItinerary = (req, res, next) => {
   console.log("OOKKK", req.body);
   db
     .one(
-      "INSERT INTO itinerary(name, city, date_departing, date_returning, budget) VALUES ($1, $2, $3, $4, $5) RETURNING id",
+      "INSERT INTO itinerary(name, city, date_departing, date_returning, budget,user_id) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id",
       [
         req.body.name,
         req.body.city,
         req.body.date_departing,
         req.body.date_returning,
-        req.body.budget
+        req.body.budget,
+        req.body.user_id
       ]
     )
     .then(id => {

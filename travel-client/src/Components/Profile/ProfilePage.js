@@ -21,12 +21,18 @@ export default class ProfilePage extends Component {
 			<Router>
 				<div>
 					<Switch>
-						<Route path="/dashboard/itinerary/:id" component={YourItinPage} />
+						<Route
+							path="/dashboard/itinerary/:id"
+							component={YourItinPage}
+						/>
 
 						<Route
 							path="/dashboard/newitinerary"
 							render={props => (
-								<NewItin {...props} newItinerary={this.props.newItinerary} />
+								<NewItin
+									{...props}
+									newItinerary={this.props.newItinerary}
+								/>
 							)}
 						/>
 						<Route
@@ -35,6 +41,7 @@ export default class ProfilePage extends Component {
 							render={props => (
 								<ItinList
 									{...props}
+									user={this.props.user}
 									queryItins={this.props.queryItins}
 									itineraries={this.props.itineraries}
 									dataLoaded={this.props.dataLoaded}

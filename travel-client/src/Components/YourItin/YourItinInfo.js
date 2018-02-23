@@ -28,7 +28,10 @@ export default class YourItinInfo extends Component {
                 <div className="Sub-sub-headings">To:</div>
                 <div>{itinerary.city}</div>
               </div>
-              <div className="Your-itinerary-card-box">activity count</div>
+              <div className="Your-itinerary-card-box">
+                <div>activity count</div>
+                <div>{this.props.activityCount}</div>
+              </div>
             </div>
             <div className="Flex-vertical Your-itin-inner">
               <div className="Your-itinerary-card-box Your-itin-top">

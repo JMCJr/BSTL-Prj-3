@@ -29,7 +29,7 @@ export default class NavHeader extends Component {
     if (this.state.menuIsOpen) {
       maybeMenuOpen = (
         <div className="itineraryDropdown">
-          <DropdownButt />
+          <DropdownButt user={this.props.user} />
         </div>
       );
     }

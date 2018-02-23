@@ -27,9 +27,9 @@ export default class DropdownButt extends Component {
     return <MenuItem itinerary={itinerary} key={index} />;
   }
 
-  getItins() {
+  getItins(id) {
     axios({
-      url: "http://localhost:8080/api/nowander/dashboard",
+      url: `http://localhost:8080/api/nowander/dashboard/user/${id}`,
       method: "GET"
     }).then(response => {
       console.log("in ProfilePage : ", response.data.itineraries);
@@ -40,7 +40,7 @@ export default class DropdownButt extends Component {
     });
   }
   componentDidMount() {
-    this.getItins();
+    this.getItins(this.props.user.id);
   }
 
   render() {

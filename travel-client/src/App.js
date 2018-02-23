@@ -109,14 +109,14 @@ class App extends Component {
         Authorization: `Bearer ${TokenService.read()}`
       }
     }).then(res => {
-      this.queryItins(1);
+      this.queryItins(this.state.user.id);
     });
   }
 
   queryItins(id) {
     console.log("queryItins", id);
     axios({
-      url: "http://localhost:8080/api/nowander/dashboard",
+      url: `http://localhost:8080/api/nowander/dashboard/user/${id}`,
       method: "get",
       headers: {
         Authorization: `Bearer ${TokenService.read()}`
@@ -208,7 +208,7 @@ class App extends Component {
         <Router>
           <div className="App">
             <div className="App Backdrop">
-              <NavHeader logout={this.logout} />
+              <NavHeader logout={this.logout} user={this.state.user} />
               <Link to="/dashboard/newitinerary">
                 <div className="createNewItinButt">CREATE NEW ITINERARY</div>
               </Link>
@@ -228,6 +228,7 @@ class App extends Component {
                   render={props => (
                     <ProfilePage
                       {...props}
+                      user={this.state.user}
                       queryItins={this.queryItins}
                       logout={this.logout}
                       newItinerary={this.newItinerary}
@@ -243,7 +244,11 @@ class App extends Component {
                 <Route
                   path="/dashboard/newitinerary"
                   render={props => (
-                    <NewItin {...props} newItinerary={this.newItinerary} />
+                    <NewItin
+                      {...props}
+                      user={this.state.user}
+                      newItinerary={this.newItinerary}
+                    />
                   )}
                 />
                 <Route
@@ -252,6 +257,7 @@ class App extends Component {
                   render={props => (
                     <ItinList
                       {...props}
+                      user={this.state.user}
                       queryItins={this.queryItins}
                       itineraries={this.itineraries}
                       dataLoaded={this.dataLoaded}

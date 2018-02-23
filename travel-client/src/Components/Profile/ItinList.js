@@ -24,8 +24,8 @@ export default class ItinList extends Component {
 	}
 
 	componentDidMount() {
-		console.log("itinList mount", this.props.userID);
-		this.props.queryItins(this.props.userID);
+		console.log("itinList mount", this.props.user.id);
+		this.props.queryItins(this.props.user.id);
 	}
 	render() {
 		if (!this.props.dataLoaded) {
@@ -34,7 +34,9 @@ export default class ItinList extends Component {
 		const itineraries = this.props.itineraries.map(this.renderItineraries);
 		return (
 			<div className="Overflow Centered-True Itinerary-box">
-				<div className="Itin-container Flex-vertical">{itineraries}</div>
+				<div className="Itin-container Flex-vertical">
+					{itineraries}
+				</div>
 			</div>
 		);
 	}
