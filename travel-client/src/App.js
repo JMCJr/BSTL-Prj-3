@@ -58,13 +58,11 @@ class App extends Component {
       .then(resp => {
         TokenService.save(resp.data.token);
         console.log("LOGIN RESPONSE", resp);
-        this.setState(
-          {
-            isLoggedIn: "YES",
-            user: resp.data.user
-          },
-          console.log("LOGIN - AFRTRE AXIOS", this.state)
-        );
+        this.setState({
+          isLoggedIn: "YES",
+          user: resp.data.user
+        });
+        console.log("LOGIN - AFRTRE AXIOS", this.state.user);
       })
       .catch(err => console.log(`err: ${err}`));
   }
@@ -110,22 +108,21 @@ class App extends Component {
         Authorization: `Bearer ${TokenService.read()}`
       }
     }).then(res => {
-      this.queryItins();
+      this.queryItins(1);
     });
   }
 
-  queryItins() {
-    console.log("***- queryItins");
+  queryItins(id) {
+    console.log("queryItins", id);
     axios({
       url: "http://localhost:8080/api/nowander/dashboard",
       method: "get",
+      // data: id,
       headers: {
         Authorization: `Bearer ${TokenService.read()}`
       }
     }).then(response => {
       console.log("got a response. response.data:", response.data);
-      const itins = response.data.itineraries;
-
       this.setState({
         itineraries: response.data.itineraries,
         dataLoaded: true
@@ -183,13 +180,11 @@ class App extends Component {
       }
     })
       .then(resp => {
-        console.log(resp);
-        this.setState(
-          {
-            isLoggedIn: resp.data.isLoggedIn
-          },
-          this.queryItins()
-        );
+        this.setState({
+          isLoggedIn: resp.data.isLoggedIn
+        });
+        // this.queryItins();
+        console.log("post-login", this.state);
       })
       .catch(err => {
         console.log(err);
@@ -198,8 +193,10 @@ class App extends Component {
 
   // _______________________
   componentDidMount() {
-    console.log("The token Serv: ", TokenService.read());
+    // console.log("The token Serv: ", TokenService.read());
     this.checkLogin();
+    // this.queryItins(this.state.userID);
+    console.log("APPjs mount", this.state.userID);
   }
 
   render() {
@@ -217,6 +214,10 @@ class App extends Component {
               </Link>
               <Switch>
                 {" "}
+                <Route
+                  path="/signup"
+                  render={() => <Redirect to="/dashboard" />}
+                />
                 <Route
                   path="/login"
                   render={() => <Redirect to="/dashboard" />}

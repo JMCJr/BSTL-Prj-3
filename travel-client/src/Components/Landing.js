@@ -15,16 +15,10 @@ export default class Landing extends Component {
 		return (
 			<div className="App Backdrop">
 				<Switch>
-					<Route
-						exact
-						path="/"
-						render={() => <Redirect to="/login" />}
-					/>
+					<Route exact path="/" render={() => <Redirect to="/login" />} />
 					<Route
 						path="/login"
-						render={props => (
-							<Login {...props} login={this.props.login} />
-						)}
+						render={props => <Login {...props} login={this.props.login} />}
 					/>
 					<Route
 						path="/signup"

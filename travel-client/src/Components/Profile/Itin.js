@@ -21,33 +21,23 @@ export default class Itin extends Component {
 						<div>
 							<span className="Itin-category-styling">Trip:</span>
 							<Link to={`/dashboard/itinerary/${itinerary.id}`}>
-								<span className="Itin-value-styling">
-									{itinerary.name}
-								</span>
+								<span className="Itin-value-styling">{itinerary.name}</span>
 							</Link>
 						</div>
 						<div>
-							<span className="Itin-category-styling">
-								Destination:
-							</span>
-							<span className="Itin-value-styling">
-								{itinerary.city}
-							</span>
+							<span className="Itin-category-styling">Destination:</span>
+							<span className="Itin-value-styling">{itinerary.city}</span>
 						</div>
 					</div>
 					<div className="Flex-horizontal Flex-space-around">
 						<div>
-							<span className="Itin-category-styling">
-								Departing:{" "}
-							</span>
+							<span className="Itin-category-styling">Departing: </span>
 							<span className="Itin-value-styling">
 								{itinerary.date_departing}
 							</span>
 						</div>
 						<div>
-							<span className="Itin-category-styling">
-								Returning:{" "}
-							</span>
+							<span className="Itin-category-styling">Returning: </span>
 							<span className="Itin-value-styling">
 								{itinerary.date_returning}
 							</span>

@@ -23,8 +23,8 @@ export default class ItinList extends Component {
 	}
 
 	componentDidMount() {
-		this.props.queryItins();
-		console.log("ITINLIST-- -componentDidMount");
+		console.log("itinList mount", this.props.userID);
+		this.props.queryItins(this.props.userID);
 	}
 	render() {
 		if (!this.props.dataLoaded) {

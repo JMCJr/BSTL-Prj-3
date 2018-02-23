@@ -20,9 +20,8 @@ export default class UserInfo extends Component {
   render() {
     return (
       <div>
-
-        <UserCard/>
-        <ItinList/>
+        <UserCard />
+        <ItinList />
       </div>
     );
   }
