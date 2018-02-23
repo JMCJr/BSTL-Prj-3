@@ -1,4 +1,4 @@
-\c noWander
+-- \c noWander
 
 -- DROP TABLE IF EXISTS users CASCADE;
 
