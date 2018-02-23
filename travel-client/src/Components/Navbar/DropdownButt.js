@@ -48,6 +48,6 @@ export default class DropdownButt extends Component {
       return "PAGE LOADING";
     }
     const itineraries = this.state.allItineraries.map(this.renderItineraries);
-    return <div className="menuDropItem">{itineraries}</div>;
+    return <div className="Navbar-drop">{itineraries}</div>;
   }
 }

@@ -34,47 +34,57 @@ export default class LoginForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
-          type="text"
-          name="fname"
-          value={this.state.fname}
-          placeholder="first name"
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="lname"
-          value={this.state.lname}
-          placeholder="last name"
-          onChange={this.handleChange}
-        />
-        <br />
-        <input
-          type="text"
-          name="username"
-          value={this.state.username}
-          placeholder="username"
-          onChange={this.handleChange}
-        />
-        <input
-          type="text"
-          name="email"
-          value={this.state.email}
-          placeholder="email"
-          onChange={this.handleChange}
-        />
-        <br />
-        <input
-          type="text"
-          name="password"
-          value={this.state.password}
-          placeholder="password"
-          onChange={this.handleChange}
-        />
-        <br />
-        <input type="submit" />
-      </form>
+      <div className="Signup">
+        <form onSubmit={this.handleSubmit}>
+          <h3 className="Signup-title">Sign Up</h3>
+          <div className="Flex-vertical ">
+            <input
+              className="New-activity-input"
+              type="text"
+              name="fname"
+              value={this.state.fname}
+              placeholder="first name"
+              onChange={this.handleChange}
+            />
+            <input
+              className="New-activity-input"
+              type="text"
+              name="lname"
+              value={this.state.lname}
+              placeholder="last name"
+              onChange={this.handleChange}
+            />
+            <br />
+            <input
+              className="New-activity-input"
+              type="text"
+              name="username"
+              value={this.state.username}
+              placeholder="username"
+              onChange={this.handleChange}
+            />
+            <input
+              className="New-activity-input"
+              type="text"
+              name="email"
+              value={this.state.email}
+              placeholder="email"
+              onChange={this.handleChange}
+            />
+            <br />
+            <input
+              className="New-activity-input"
+              type="text"
+              name="password"
+              value={this.state.password}
+              placeholder="password"
+              onChange={this.handleChange}
+            />
+            <br />
+            <input className="Signup-submit" type="submit" />
+          </div>
+        </form>
+      </div>
     );
   }
 }

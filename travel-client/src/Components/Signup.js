@@ -45,8 +45,7 @@ class Signup extends Component {
           <div className="Name">
             <img src={Name} />
           </div>
-          <div className="login signupform" style={{ left: 350 }}>
-            <h3>Sign Up</h3>
+          <div>
             <RegisterForm submit={this.onSubmit} />
           </div>
         </div>

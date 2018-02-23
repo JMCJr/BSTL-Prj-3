@@ -35,23 +35,26 @@ export default class NavHeader extends Component {
     }
     return (
       <div className="navEntire">
-        <Link to={"/dashboard"}>
-          <div className="profileIMG" />
-        </Link>
-
+        <div>
+          <Link to={"/login"}>
+            <div className="profileIMG" />
+          </Link>
+          <div>
+            {this.props.user.fname} {this.props.user.lname}
+          </div>
+        </div>
         <div className="signoutButton" onClick={this.props.logout}>
           Sign out
         </div>
 
-        <button
+        <div
           className="dropMenu"
           type="submit"
           name="show itinerary"
           onClick={this.handleOpenMenu}
         >
-          Show My Itineraries
-        </button>
-
+          Itineraries
+        </div>
         {maybeMenuOpen}
       </div>
     );

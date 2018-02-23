@@ -1,10 +1,24 @@
 .App {
   text-align: center;
 }
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Patua One", cursive;
+}
+body {
+  font-family: helvetica, sans-serif;
+  letter-spacing: 1px;
+  font-size: 15px;
+  font-weight: bold;
+  overflow: hidden;
+}
 .Backdrop {
   background: #88c0e8;
-  height: 100vh;
+  height: 5000px;
   width: 100vw;
   background-image: url(Images/Background_Pieces_1-Back.png);
   background-repeat: no-repeat;
@@ -39,6 +53,7 @@
 }
 
 .Itinerary-box {
+  top: 200px;
   width: 45%;
   border-radius: 20px;
   border: 1px solid #88c0e8;
@@ -129,10 +144,9 @@ textarea {
 .New-activity-submit {
   margin-top: 10px;
   background: green;
-  width: 50%;
+  width: 100%;
   height: 30px;
   color: white;
-  margin-left: 25%;
 }
 .Activity-holder {
   overflow: scroll;
@@ -153,6 +167,7 @@ textarea {
   height: 200px;
   width: 700px;
   position: absolute;
+  top: 40%;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -239,10 +254,31 @@ input {
 }*/
 
 /*drop-down for the NAV bar*/
+.Add-activity-button {
+  cursor: pointer;
+  background: url(Icons/ICONS-4-add.png);
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  margin-left: 50px;
+  margin-top: 15px;
+}
 .dropMenu {
+  text-align: center;
+  background-color: rgb(153, 103, 153);
   width: 60px;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 5px 0px 5px;
+  cursor: pointer;
 }
 
+.menuDropItem {
+  font-size: 16px;
+  width: 130px;
+  height: 40px;
+  border-bottom: 1px solid white;
+}
 .profileIMG {
   height: 80px;
   width: 80px;
@@ -259,14 +295,8 @@ input {
 .itineraryDrop {
   background-color: orange;
   border: 1px solid white;
-  width: 130px;
-}
-.menuDropItem {
-  font-size: 12px;
-  width: 130px;
-  height: 40px;
-  background-color: grey;
-  border-bottom: 1px solid white;
+  width: 13033px;
+  margin-left: 50px;
 }
 
 .landingContainer {
@@ -316,7 +346,7 @@ input {
 
 .signoutButton {
   margin: auto 0;
-
+  cursor: pointer;
   height: 20px;
   width: auto;
 }
@@ -327,12 +357,15 @@ input {
 
 .itineraryDropdown {
   z-index: 4;
+  position: absolute;
+  right: 128px;
+  top: 51px;
 }
 
 .navEntire {
   display: flex;
   flex-direction: row;
-  background-color: rgba(176, 176, 176, 0.8);
+  padding-top: 5px;
   justify-content: space-around;
 }
 
@@ -341,4 +374,53 @@ input {
   box-shadow: 10px 10px 5px #888888;
   padding: 10px;
   padding-bottom: 20px;
+}
+a:link {
+  text-decoration: none;
+  color: #09234c;
+}
+a:hover {
+  border: 0.5 solid grey;
+  color: #09234c;
+}
+a:visited {
+  color: #09234c;
+}
+.Delete-Act {
+  cursor: pointer;
+  background: url(Icons/ICONS-3-trash-w.png);
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+}
+.Edit-Act {
+  cursor: pointer;
+  background: url(Icons/ICONS-1-erase.png);
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+}
+.Signup {
+  position: absolute;
+  left: 50%;
+  top: 170px;
+  transform: translateX(-50%);
+  border-radius: 5px;
+}
+.Signup-submit {
+  background: green;
+  width: 80%;
+  height: 30px;
+  color: white;
+}
+.Signup-title {
+  margin-left: -25px;
+}
+.Navbar-drop {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  border: 1px solid #88c0e8;
+  padding: 5px;
+  margin-top: 20px;
+  margin-left: 10px;
 }

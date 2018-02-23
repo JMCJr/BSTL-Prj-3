@@ -11,6 +11,7 @@ import "../../Delightful.css";
 import Activity from "./Activity";
 import NewActivity from "./NewActivity";
 import Modal from "react-responsive-modal";
+import addIcon from "../../Icons/ICONS-4-add.png";
 
 export default class ActivityList extends Component {
   constructor(props) {
@@ -72,7 +73,10 @@ export default class ActivityList extends Component {
                 <h2>Activity List</h2>
               </span>
               <span>
-                <button onClick={this.modalHandler}>Add Activity</button>
+                <div
+                  onClick={this.modalHandler}
+                  className="Add-activity-button"
+                />
               </span>
             </div>
             <div className="Activity-container">
